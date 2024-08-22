@@ -13,5 +13,5 @@ void applesQ() {
   int dozens = (applesCount / 12).toInt();
   int leftOver = applesCount % 12;
 
-  print("You have ${dozens} dozens of apple \nAnd ${leftOver} left over");
+  print("You have ${dozens} dozens of apple and ${leftOver} left over");
 }
