@@ -1,4 +1,4 @@
-import '../session_1/5.dart';
+import '../session_1/6.dart';
 
 void main() {
   // // 1
@@ -8,5 +8,8 @@ void main() {
   // Rectangle rectangle = new Rectangle(height: 6, width: 4);
   // print(rectangle.perimeter());
 // 5
-  applesQ();
+//   applesQ();
+
+// 6
+  metersQ();
 }
