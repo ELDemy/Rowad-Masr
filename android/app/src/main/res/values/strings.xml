@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Depi Android</string>
+    <string name="title_activity_main">activity_main</string>
+    <string name="title_activity_main2">MainActivity2</string>
+</resources>
