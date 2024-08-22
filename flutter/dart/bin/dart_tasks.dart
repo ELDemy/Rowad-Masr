@@ -1,4 +1,4 @@
-import '../session_1/6.dart';
+import '../session_1/7.dart';
 
 void main() {
   // // 1
@@ -11,5 +11,7 @@ void main() {
 //   applesQ();
 
 // 6
-  metersQ();
+//   metersQ();
+// 7
+  timeQ();
 }
