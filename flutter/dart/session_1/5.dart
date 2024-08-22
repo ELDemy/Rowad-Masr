@@ -9,6 +9,7 @@ division is performed. (This hint also goes to questions 7, 8, 9 and IO).
 import 'dart:io';
 
 void applesQ() {
+  print("Please enter the number of apples you have");
   int applesCount = int.parse(stdin.readLineSync()!);
   int dozens = (applesCount / 12).toInt();
   int leftOver = applesCount % 12;
