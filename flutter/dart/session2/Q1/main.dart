@@ -77,6 +77,7 @@ void main() {
   Vehicle fastestVehicle = vehicleMap[kFastest];
   Truck? heaviestTruck = vehicleMap[kHeaviest];
   Vehicle cheapestVehicle = vehicleMap[kCheapest];
+
   print(
     "The Fastest Vehicle is ${fastestVehicle.vehicleName}:\n${fastestVehicle.details()}\n\n",
   );
