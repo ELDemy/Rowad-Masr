@@ -4,25 +4,30 @@ class Client {
   static int _nextNumber = 10001;
 
   late final int number;
-  final String name;
-  final int age;
-  final String phoneNumber;
-  final String address;
-  List<Account> accountsList = [];
+  String name;
+  int age;
+  String phoneNumber;
+  String address;
+  final Map<int, Account> _accountsMap = {};
 
-  Client(
-      {required this.name,
-      required this.age,
-      required this.phoneNumber,
-      required this.address})
-      : number = _nextNumber++;
+  Client({
+    required this.name,
+    required this.age,
+    required this.phoneNumber,
+    required this.address,
+  }) : number = _nextNumber++;
 
-  newAccount(
-      {required String type,
-      required double balance,
-      required String currency}) {
-    accountsList.add(
-      Account(client: this, type: type, balance: balance, currency: currency),
-    );
+  newAccount(Account account) {
+    _accountsMap.addAll({account.number: account});
+  }
+
+  Account? getAccount(int accountNumber) {
+    Account? account = _accountsMap[accountNumber];
+    if (account != null) {
+      return account;
+    } else {
+      print("Account number $accountNumber is not found");
+      return null;
+    }
   }
 }
