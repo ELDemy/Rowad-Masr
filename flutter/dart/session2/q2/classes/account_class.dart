@@ -1,14 +1,14 @@
 import 'client_class.dart';
 
 class Account {
-  static int _nextNumber = 90001;
+  static int _nextUniqueNumber = 90001;
+  final int number = _nextUniqueNumber++;
 
   final String type;
   double balance;
   final String currency;
   final Client client;
 
-  late final int number;
   late final String _currencySymbol;
 
   Account({
@@ -17,15 +17,16 @@ class Account {
     required this.balance,
     required this.currency,
   }) {
-    number = _nextNumber++;
-
     switch (currency) {
       case "EGP":
         _currencySymbol = "LE";
+        break;
       case "USD":
         _currencySymbol = "\$";
+        break;
       default:
         _currencySymbol = "\$";
+        break;
     }
 
     client.newAccount(this);
@@ -46,5 +47,14 @@ class Account {
       print(
           "Transaction Declined for Account number $number: insufficient balance $balance $_currencySymbol");
     }
+  }
+
+  void printDetails() {
+    print(
+      "Account Number: $number\n"
+      "Account Type: $type\n"
+      "Account Currency: $currency\n"
+      "Balance: $balance\n",
+    );
   }
 }
