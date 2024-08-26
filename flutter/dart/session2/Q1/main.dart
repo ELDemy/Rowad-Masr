@@ -1,7 +1,7 @@
-import 'Q1/car_class.dart';
-import 'Q1/motor_cycle_class.dart';
-import 'Q1/truck_class.dart';
-import 'Q1/vehicle_class.dart';
+import 'classes/car_class.dart';
+import 'classes/motor_cycle_class.dart';
+import 'classes/truck_class.dart';
+import 'classes/vehicle_class.dart';
 import 'map_constants.dart';
 
 void main() {
