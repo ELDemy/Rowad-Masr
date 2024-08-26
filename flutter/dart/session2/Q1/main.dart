@@ -72,7 +72,7 @@ void main() {
   );
 
   Map<String, dynamic> vehicleMap =
-      Vehicle.compareAll([car1, car2, motor1, motor2]);
+      Vehicle.compareAll([car1, car2, truck1, truck2, motor1, motor2]);
 
   Vehicle fastestVehicle = vehicleMap[kFastest];
   Truck? heaviestTruck = vehicleMap[kHeaviest];

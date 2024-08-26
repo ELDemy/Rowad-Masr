@@ -1,7 +1,7 @@
 import '../map_constants.dart';
 import 'truck_class.dart';
 
-class Vehicle {
+abstract class Vehicle {
   final int cylinderCap;
   final int maxSpeed;
   final String engineType;
