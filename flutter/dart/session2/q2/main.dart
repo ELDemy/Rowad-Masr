@@ -6,10 +6,10 @@ void main() {
       name: "Younes", age: 2, phoneNumber: "01097662212", address: "Belbeis");
 
   //there is two methods to add a new account:
-  //#1
+  //#1 preferred
   Account(client: client, type: "Current", balance: 25000, currency: "EGP");
 
-  // #2 preferred
+  // #2
   client.newAccount(
       Account(client: client, type: "Saving", balance: 1800, currency: "USD"));
 
