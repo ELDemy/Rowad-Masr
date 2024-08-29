@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'q1_class_of_students/client_class.dart';
-import 'q1_class_of_students/student_class.dart';
+import 'client_class.dart';
+import 'student_class.dart';
 
 void main() {
   Client client = Client();
