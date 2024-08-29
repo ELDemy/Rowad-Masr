@@ -4,32 +4,32 @@ class Product {
   static Map<int, Product> allProducts = {};
   static int _serialCode = 1;
 
-  final int code = _serialCode++;
+  final int code;
   final String name;
   int stock;
 
-  Map<Customer, int> customersMap = {};
+  final Map<Customer, int> customersMap = {};
 
-  Product({required this.name, required this.stock}) {
-    allProducts.addAll({code: this});
+  Product({required this.name, required this.stock}) : code = _serialCode++ {
+    allProducts[code] = this;
   }
 
   void addCustomer(Customer customer, int quantity) {
     customer.addProduct(this, quantity);
   }
 
-  void addCustomers(Map<Customer, int> customersMap) {
-    for (Customer customer in customersMap.keys) {
-      addCustomer(customer, customersMap[customer]!);
-    }
+  void addCustomers(Map<Customer, int> customerProductMap) {
+    customerProductMap.forEach((customer, quantity) {
+      addCustomer(customer, quantity);
+    });
   }
 
   @override
   String toString() {
     String customers = "";
-    for (Customer customer in customersMap.keys) {
-      customers += "${customer.name} with ${customersMap[customer]} pieces\n";
-    }
+    customersMap.forEach((customer, quantity) {
+      customers += "${customer.name} with $quantity pieces\n";
+    });
 
     return "Product code: $code\n"
         "Product Name: $name\n"
