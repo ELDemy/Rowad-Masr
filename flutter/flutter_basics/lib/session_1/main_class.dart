@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basics/session_1/view_1.dart';
 
 class Session1 extends StatelessWidget {
   const Session1({super.key});
@@ -14,14 +15,5 @@ class Session1 extends StatelessWidget {
       ),
       home: const View1(),
     );
-  }
-}
-
-class View1 extends StatelessWidget {
-  const View1({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
   }
 }
