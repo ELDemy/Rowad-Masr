@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basics/session_1/widgets/custom_app_bar.dart';
 import 'package:flutter_basics/session_1/widgets/highlighted_container.dart';
 import 'package:flutter_basics/session_1/widgets/numbered_container.dart';
 
@@ -9,15 +10,7 @@ class View2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFEE534F),
-      appBar: AppBar(
-        title: const Text("I'm an App"),
-        foregroundColor: Colors.white,
-        centerTitle: true,
-        elevation: 2,
-        backgroundColor: const Color(0xFFE43935),
-        shadowColor: Colors.black,
-        surfaceTintColor: Colors.transparent,
-      ),
+      appBar: const CustomAppBar(),
       body: Container(
         padding: const EdgeInsets.only(top: 0),
         child: const Column(
