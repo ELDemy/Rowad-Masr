@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'view_2.dart';
+import 'package:flutter_basics/session_1/view_1.dart';
+import 'package:flutter_basics/session_1/view_2.dart';
 
 class Session1 extends StatelessWidget {
   const Session1({super.key});

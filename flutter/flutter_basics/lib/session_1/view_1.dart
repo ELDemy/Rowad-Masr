@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basics/session_1/widgets/highlighted_container.dart';
 
 class View1 extends StatelessWidget {
   const View1({super.key});
@@ -14,19 +15,13 @@ class View1 extends StatelessWidget {
             Container(
               color: Colors.red,
               width: 110,
-              child: Column(
+              child: const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
+                  HighlightedContainer(
                     width: 90,
-                    height: 95,
-                    margin: const EdgeInsets.only(left: 3, top: 10),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFE35432),
-                      border:
-                          Border.all(color: const Color(0xFF4DFC19), width: 4),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+                    height: 100,
+                    margin: EdgeInsets.only(left: 3, top: 10),
                   ),
                 ],
               ),

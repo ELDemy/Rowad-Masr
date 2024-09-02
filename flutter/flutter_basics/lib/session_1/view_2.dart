@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basics/session_1/widgets/highlighted_container.dart';
 
 class View2 extends StatelessWidget {
   const View2({super.key});
@@ -29,17 +30,12 @@ class View2 extends StatelessWidget {
                   CustomContainer("3"),
                 ],
               ),
-              Container(
-                width: 90,
+              HighlightedContainer(
+                width: 95,
                 height: 105,
-                decoration: BoxDecoration(
-                  color: const Color(0xFFE35432),
-                  border: Border.all(color: const Color(0xFF4DFC19), width: 4),
-                  borderRadius: BorderRadius.circular(10),
-                ),
               ),
             ],
-          )
+          ),
         ],
       ),
     );
