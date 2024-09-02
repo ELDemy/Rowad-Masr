@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_basics/session_1/view_1.dart';
+
+import 'view_2.dart';
 
 class Session1 extends StatelessWidget {
   const Session1({super.key});
@@ -13,7 +14,7 @@ class Session1 extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const View1(),
+      home: const View2(),
     );
   }
 }
