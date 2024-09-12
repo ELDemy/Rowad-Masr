@@ -13,7 +13,7 @@ class MyPersistentBottomNavBar extends StatelessWidget {
       screens: NavBarData().buildScreens(),
       items: NavBarData().navBarsItems(),
       navBarStyle: NavBarStyle.style15,
-      navBarHeight: 100,
+      navBarHeight: 96,
       padding: const EdgeInsets.only(bottom: 30, top: 10),
       backgroundColor: const Color(0xff363636),
       isVisible: true,

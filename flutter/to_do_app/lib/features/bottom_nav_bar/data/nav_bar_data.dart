@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
+import 'package:to_do_app/constants.dart';
 import 'package:to_do_app/features/add_todo/presentation/views/todo_view.dart';
 import 'package:to_do_app/features/bottom_nav_bar/data/navbar_icons.dart';
 import 'package:to_do_app/features/calendar/presentation/views/calendar_view.dart';
@@ -18,25 +19,29 @@ class NavBarData {
 
   Map<Widget, PersistentBottomNavBarItem> _navBarData() => {
         const HomeView(): PersistentBottomNavBarItem(
-          icon: SvgPicture.asset(NavIcons.homeActive),
-          inactiveIcon: SvgPicture.asset(NavIcons.homeInActive),
-          title: "Index",
+          icon: SvgPicture.asset(
+            NavIcons.homeActive,
+            height: 24,
+          ),
+          inactiveIcon: SvgPicture.asset(NavIcons.homeInActive, height: 24),
+          title: ("Index"),
           activeColorPrimary: Colors.white,
           routeAndNavigatorSettings:
               RouteAndNavigatorSettings(initialRoute: "/", routes: _routes),
         ),
         const CalendarView(): PersistentBottomNavBarItem(
           icon: SvgPicture.asset(NavIcons.calendarActive),
-          inactiveIcon: SvgPicture.asset(NavIcons.calendarInActive),
+          inactiveIcon: SvgPicture.asset(
+            NavIcons.calendarInActive,
+          ),
           title: ("Calendar"),
           activeColorPrimary: Colors.white,
           routeAndNavigatorSettings:
               RouteAndNavigatorSettings(initialRoute: "/", routes: _routes),
         ),
         const AddTodoView(): PersistentBottomNavBarItem(
-          icon: SvgPicture.asset(
-            NavIcons.add,
-          ),
+          icon: SvgPicture.asset(NavIcons.add),
+          activeColorPrimary: kPrimaryColor,
           routeAndNavigatorSettings:
               RouteAndNavigatorSettings(initialRoute: "/", routes: _routes),
         ),
