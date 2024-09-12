@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_app/models/task_model.dart';
-import 'package:to_do_app/widgets/custom_elevated_button.dart';
+
+import '../models/task_model.dart';
+import '../widgets/custom_elevated_button.dart';
 
 class EditTaskPage extends StatelessWidget {
   const EditTaskPage({super.key, required this.task});

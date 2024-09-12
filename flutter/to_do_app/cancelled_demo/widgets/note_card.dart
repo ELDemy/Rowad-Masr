@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:to_do_app/models/task_model.dart';
-import 'package:to_do_app/pages/edit_task_page.dart';
+
+import '../models/task_model.dart';
+import '../pages/edit_task_page.dart';
 
 class NoteCard extends StatelessWidget {
   const NoteCard({

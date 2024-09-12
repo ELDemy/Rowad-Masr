@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:to_do_app/constants.dart';
-import 'package:to_do_app/pages/add_task_page.dart';
-import 'package:to_do_app/pages/completed_tasks.dart';
-import 'package:to_do_app/widgets/tasks_body.dart';
+
+import '../constants.dart';
+import '../widgets/tasks_body.dart';
+import 'add_task_page.dart';
+import 'completed_tasks.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

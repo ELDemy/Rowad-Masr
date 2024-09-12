@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_app/models/task_model.dart';
-import 'package:to_do_app/widgets/note_card.dart';
+
+import '../models/task_model.dart';
+import 'note_card.dart';
 
 class TasksBody extends StatelessWidget {
   TasksBody({super.key});
