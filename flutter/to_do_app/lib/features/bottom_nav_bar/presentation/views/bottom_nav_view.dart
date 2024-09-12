@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
+import 'package:to_do_app/core/utiles/colors.dart';
 import 'package:to_do_app/features/bottom_nav_bar/data/nav_bar_data.dart';
 
 class MyPersistentBottomNavBar extends StatelessWidget {
@@ -15,7 +16,7 @@ class MyPersistentBottomNavBar extends StatelessWidget {
       navBarStyle: NavBarStyle.style15,
       navBarHeight: 96,
       padding: const EdgeInsets.only(bottom: 30, top: 10),
-      backgroundColor: const Color(0xff363636),
+      backgroundColor: AppColors.kGreyBackgroundColor,
       isVisible: true,
       animationSettings: const NavBarAnimationSettings(
         navBarItemAnimation: ItemAnimationSettings(
