@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_app/features/profile/presentation/views/widgets/sections/account_section.dart';
+import 'package:to_do_app/features/profile/presentation/views/widgets/sections/logout_widget.dart';
+import 'package:to_do_app/features/profile/presentation/views/widgets/sections/up_todo_section.dart';
 
 import 'row_tasks_info_widget.dart';
 import 'sections/settings_section.dart';
@@ -9,9 +12,9 @@ class ProfileBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24),
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 24),
+      child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -19,8 +22,11 @@ class ProfileBody extends StatelessWidget {
             UserTopInfo(),
             SizedBox(height: 20),
             TasksInfoWidget(),
-            SizedBox(height: 32),
             SettingsSection(),
+            AccountSection(),
+            UpTodoSection(),
+            LogoutWidget(),
+            SizedBox(height: 88),
           ],
         ),
       ),

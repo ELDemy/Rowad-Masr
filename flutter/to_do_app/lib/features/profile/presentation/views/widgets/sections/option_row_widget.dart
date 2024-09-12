@@ -8,26 +8,33 @@ class OptionRowWidget extends StatelessWidget {
     required this.text,
     required this.leftIcon,
     this.onTap,
+    this.rightArrow = true,
   });
 
   final Widget leftIcon;
   final String text;
   final VoidCallback? onTap;
+  final bool rightArrow;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      child: Row(
-        children: [
-          leftIcon,
-          const SizedBox(width: 10),
-          Text(
-            text,
-            style: const TextStyle(fontSize: 16),
-          ),
-          const Spacer(),
-          SvgPicture.asset(ProfileIcons.arrow),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.only(top: 12, bottom: 20),
+        child: Row(
+          children: [
+            leftIcon,
+            const SizedBox(width: 10),
+            Text(
+              text,
+              style: const TextStyle(fontSize: 16),
+            ),
+            const Spacer(),
+            rightArrow
+                ? SvgPicture.asset(ProfileIcons.arrow)
+                : const SizedBox(),
+          ],
+        ),
       ),
     );
   }

@@ -15,7 +15,10 @@ class SettingsSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SubtitleText("Settings"),
+        const Padding(
+          padding: EdgeInsets.only(top: 4),
+          child: SubtitleText("Settings"),
+        ),
         OptionRowWidget(
           text: "App Settings",
           leftIcon: SvgPicture.asset(ProfileIcons.settings),
