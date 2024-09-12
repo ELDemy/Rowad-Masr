@@ -90,10 +90,10 @@ packages:
     dependency: "direct dev"
     description:
       name: flutter_lints
-      sha256: a25a15ebbdfc33ab1cd26c63a6ee519df92338a9c10f122adda92938253bef04
+      sha256: "3f41d009ba7172d5ff9be5f6e6e6abb4300e263aab8866d2a0842ed2a70f8f0c"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.3"
+    version: "4.0.0"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -111,10 +111,10 @@ packages:
     dependency: "direct main"
     description:
       name: google_fonts
-      sha256: "5b1726fee554d1cc9db1baef8061b126567ff0a1140a03ed7de936e62f2ab98b"
+      sha256: b1ac0fe2832c9cc95e5e88b57d627c5e68c223b9657f4b96e1487aa9098c7b82
       url: "https://pub.dev"
     source: hosted
-    version: "6.2.0"
+    version: "6.2.1"
   http:
     dependency: transitive
     description:
@@ -159,10 +159,10 @@ packages:
     dependency: transitive
     description:
       name: lints
-      sha256: "0a217c6c989d21039f1498c3ed9f3ed71b354e69873f13a8dfc3c9fe76f1b452"
+      sha256: "976c774dd944a42e83e2467f4cc670daef7eed6295b10b36ae8c85bcbf828235"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.1"
+    version: "4.0.0"
   matcher:
     dependency: transitive
     description:
@@ -251,6 +251,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.0"
+  persistent_bottom_nav_bar:
+    dependency: "direct main"
+    description:
+      name: persistent_bottom_nav_bar
+      sha256: "6aa9b97ced1abd92c90cedd1997d34ea0b35c3ded762ac6063baccc299b0c4c5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.2.1"
   petitparser:
     dependency: transitive
     description:
@@ -402,4 +410,4 @@ packages:
     version: "6.5.0"
 sdks:
   dart: ">=3.3.0 <4.0.0"
-  flutter: ">=3.18.0-18.0.pre.54"
+  flutter: ">=3.19.2"
