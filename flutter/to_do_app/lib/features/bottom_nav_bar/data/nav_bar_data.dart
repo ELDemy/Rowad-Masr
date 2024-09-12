@@ -20,7 +20,8 @@ class NavBarData {
         const HomeView(): PersistentBottomNavBarItem(
           icon: SvgPicture.asset(NavIcons.homeActive),
           inactiveIcon: SvgPicture.asset(NavIcons.homeInActive),
-          title: ("Index"),
+          title: "Index",
+          activeColorPrimary: Colors.white,
           routeAndNavigatorSettings:
               RouteAndNavigatorSettings(initialRoute: "/", routes: _routes),
         ),
@@ -28,20 +29,22 @@ class NavBarData {
           icon: SvgPicture.asset(NavIcons.calendarActive),
           inactiveIcon: SvgPicture.asset(NavIcons.calendarInActive),
           title: ("Calendar"),
+          activeColorPrimary: Colors.white,
           routeAndNavigatorSettings:
               RouteAndNavigatorSettings(initialRoute: "/", routes: _routes),
         ),
         const AddTodoView(): PersistentBottomNavBarItem(
-          icon: SvgPicture.asset(NavIcons.add),
+          icon: SvgPicture.asset(
+            NavIcons.add,
+          ),
           routeAndNavigatorSettings:
               RouteAndNavigatorSettings(initialRoute: "/", routes: _routes),
         ),
         const FocusView(): PersistentBottomNavBarItem(
           icon: SvgPicture.asset(NavIcons.clockActive),
           inactiveIcon: SvgPicture.asset(NavIcons.clockInActive),
-          title: ("Focus View"),
-          activeColorPrimary: Colors.blue,
-          inactiveColorPrimary: Colors.grey,
+          title: ("Focus"),
+          activeColorPrimary: Colors.white,
           routeAndNavigatorSettings: RouteAndNavigatorSettings(
             initialRoute: "/",
             routes: {
@@ -52,9 +55,9 @@ class NavBarData {
         ),
         const ProfileView(): PersistentBottomNavBarItem(
           icon: const Icon(Icons.person),
-          title: ("Settings"),
-          activeColorPrimary: Colors.blue,
-          inactiveColorPrimary: Colors.grey,
+          inactiveIcon: SvgPicture.asset(NavIcons.profile),
+          title: ("Profile"),
+          activeColorPrimary: Colors.white,
           routeAndNavigatorSettings: RouteAndNavigatorSettings(
             initialRoute: "/",
             routes: {

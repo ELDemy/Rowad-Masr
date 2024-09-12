@@ -12,13 +12,10 @@ class MyPersistentBottomNavBar extends StatelessWidget {
       controller: NavBarData().controller,
       screens: NavBarData().buildScreens(),
       items: NavBarData().navBarsItems(),
-      handleAndroidBackButtonPress: true, // Default is true.
-      resizeToAvoidBottomInset: true,
-      stateManagement: true, // Default is true.
-      hideNavigationBarWhenKeyboardAppears: true,
-      popBehaviorOnSelectedNavBarItemPress: PopBehavior.all,
-      padding: const EdgeInsets.only(top: 8),
-      backgroundColor: Colors.grey.shade900,
+      navBarStyle: NavBarStyle.style15,
+      navBarHeight: 100,
+      padding: const EdgeInsets.only(bottom: 30, top: 10),
+      backgroundColor: const Color(0xff363636),
       isVisible: true,
       animationSettings: const NavBarAnimationSettings(
         navBarItemAnimation: ItemAnimationSettings(
@@ -32,8 +29,11 @@ class MyPersistentBottomNavBar extends StatelessWidget {
         ),
       ),
       confineToSafeArea: true,
-      navBarHeight: kBottomNavigationBarHeight,
-      navBarStyle: NavBarStyle.style15,
+      handleAndroidBackButtonPress: true, // Default is true.
+      resizeToAvoidBottomInset: true,
+      stateManagement: true, // Default is true.
+      hideNavigationBarWhenKeyboardAppears: true,
+      popBehaviorOnSelectedNavBarItemPress: PopBehavior.all,
     );
   }
 }
