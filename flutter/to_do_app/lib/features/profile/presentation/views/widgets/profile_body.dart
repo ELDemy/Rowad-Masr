@@ -22,6 +22,7 @@ class ProfileBody extends StatelessWidget {
             UserTopInfo(),
             SizedBox(height: 20),
             TasksInfoWidget(),
+            SizedBox(height: 24),
             SettingsSection(),
             AccountSection(),
             UpTodoSection(),

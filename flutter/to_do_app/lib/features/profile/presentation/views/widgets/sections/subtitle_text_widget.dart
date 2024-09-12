@@ -7,7 +7,7 @@ class SubtitleText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 4, top: 28),
+      padding: const EdgeInsets.only(bottom: 4, top: 8),
       child: Text(
         text,
         style: const TextStyle(
