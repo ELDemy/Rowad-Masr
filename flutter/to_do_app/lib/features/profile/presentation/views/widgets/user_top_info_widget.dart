@@ -5,18 +5,20 @@ class UserTopInfo extends StatelessWidget {
     super.key,
   });
 
+  static String name = "Mahmoud ELDemerdash";
+
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        CircleAvatar(
+        const CircleAvatar(
           backgroundImage: AssetImage('assets/images/avatar.jpg'),
           radius: 85 / 2,
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         Text(
-          "Mahmoud ELDemerdash",
-          style: TextStyle(fontSize: 20),
+          name,
+          style: const TextStyle(fontSize: 20),
         ),
       ],
     );

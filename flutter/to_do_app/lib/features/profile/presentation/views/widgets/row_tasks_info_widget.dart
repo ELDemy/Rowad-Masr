@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_app/core/utiles/colors.dart';
+import 'package:to_do_app/core/utiles/app_colors.dart';
 
 class TasksInfoWidget extends StatelessWidget {
   const TasksInfoWidget({super.key});

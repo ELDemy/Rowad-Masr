@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_app/features/profile/presentation/views/widgets/sections/account_section.dart';
+import 'package:to_do_app/features/profile/presentation/views/widgets/sections/acount_section/account_section.dart';
 import 'package:to_do_app/features/profile/presentation/views/widgets/sections/logout_widget.dart';
 import 'package:to_do_app/features/profile/presentation/views/widgets/sections/up_todo_section.dart';
 

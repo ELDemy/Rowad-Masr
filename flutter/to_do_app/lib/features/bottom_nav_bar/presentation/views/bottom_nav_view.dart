@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
-import 'package:to_do_app/core/utiles/colors.dart';
+import 'package:to_do_app/core/utiles/app_colors.dart';
 import 'package:to_do_app/features/bottom_nav_bar/data/nav_bar_data.dart';
 
 class MyPersistentBottomNavBar extends StatelessWidget {
