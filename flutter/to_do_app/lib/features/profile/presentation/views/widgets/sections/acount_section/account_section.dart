@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:to_do_app/core/utiles/icons.dart';
+import 'package:to_do_app/features/profile/presentation/views/widgets/sections/acount_section/alert_dialogs/change_account_image_alert_dialog.dart';
 
 import '../option_row_widget.dart';
 import '../subtitle_text_widget.dart';
@@ -43,6 +44,14 @@ class AccountSection extends StatelessWidget {
         OptionRowWidget(
           text: "Change account Image",
           leftIcon: SvgPicture.asset(ProfileIcons.camera),
+          onTap: () {
+            showDialog(
+              context: context,
+              builder: (context) {
+                return const ChangeImageAlertDialog();
+              },
+            );
+          },
         ),
       ],
     );

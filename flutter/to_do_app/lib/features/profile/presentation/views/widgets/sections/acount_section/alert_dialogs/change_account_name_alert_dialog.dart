@@ -18,6 +18,7 @@ class _ChangeNameAlertDialogState extends State<ChangeNameAlertDialog> {
     return CustomAlertDialog(
       title: "Change account name",
       content: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           DialogTextFormField(
               controller: _controller, labelText: UserTopInfo.name),
