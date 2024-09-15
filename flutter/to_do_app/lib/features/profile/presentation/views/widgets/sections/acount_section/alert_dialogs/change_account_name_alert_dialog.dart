@@ -17,8 +17,13 @@ class _ChangeNameAlertDialogState extends State<ChangeNameAlertDialog> {
   Widget build(BuildContext context) {
     return CustomAlertDialog(
       title: "Change account name",
-      content: DialogTextFormField(
-          controller: _controller, labelText: UserTopInfo.name),
+      content: Column(
+        children: [
+          DialogTextFormField(
+              controller: _controller, labelText: UserTopInfo.name),
+          const SizedBox(height: 28),
+        ],
+      ),
       onEdit: () {
         if (_controller.text.trim().isNotEmpty) {
           UserTopInfo.name = _controller.text;

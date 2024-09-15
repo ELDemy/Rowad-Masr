@@ -20,8 +20,7 @@ class CustomAlertDialog extends StatelessWidget {
       insetPadding: const EdgeInsets.all(0),
       titlePadding: const EdgeInsets.only(right: 8, left: 8, bottom: 16),
       contentPadding: const EdgeInsets.symmetric(horizontal: 20),
-      actionsPadding:
-          const EdgeInsets.only(top: 28, bottom: 8, right: 8, left: 8),
+      actionsPadding: const EdgeInsets.only(bottom: 8, right: 8, left: 8),
       title: _DialogTitle(),
       content: content,
       actions: _DialogActions(context),
@@ -39,7 +38,6 @@ class CustomAlertDialog extends StatelessWidget {
         style: const TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.w700,
-          color: Colors.white,
         ),
       ),
     );
