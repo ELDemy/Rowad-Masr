@@ -5,6 +5,7 @@ import 'package:to_do_app/core/utiles/icons.dart';
 import '../option_row_widget.dart';
 import '../subtitle_text_widget.dart';
 import 'alert_dialogs/change_account_name_alert_dialog.dart';
+import 'alert_dialogs/change_account_password_alert_dialog.dart';
 
 class AccountSection extends StatelessWidget {
   const AccountSection({super.key});
@@ -30,6 +31,14 @@ class AccountSection extends StatelessWidget {
         OptionRowWidget(
           text: "Change account password",
           leftIcon: SvgPicture.asset(ProfileIcons.key),
+          onTap: () {
+            showDialog(
+              context: context,
+              builder: (context) {
+                return const ChangePasswordAlertDialog();
+              },
+            );
+          },
         ),
         OptionRowWidget(
           text: "Change account Image",

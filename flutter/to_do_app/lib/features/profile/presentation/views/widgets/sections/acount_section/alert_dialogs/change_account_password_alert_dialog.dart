@@ -3,25 +3,26 @@ import 'package:to_do_app/features/profile/presentation/views/widgets/custom_ale
 import 'package:to_do_app/features/profile/presentation/views/widgets/dialog_text_form_field.dart';
 import 'package:to_do_app/features/profile/presentation/views/widgets/user_top_info_widget.dart';
 
-class ChangeNameAlertDialog extends StatefulWidget {
-  const ChangeNameAlertDialog({super.key});
+class ChangePasswordAlertDialog extends StatefulWidget {
+  const ChangePasswordAlertDialog({super.key});
 
   @override
-  State<ChangeNameAlertDialog> createState() => _ChangeNameAlertDialogState();
+  State<ChangePasswordAlertDialog> createState() =>
+      _ChangePasswordAlertDialogState();
 }
 
-class _ChangeNameAlertDialogState extends State<ChangeNameAlertDialog> {
-  final TextEditingController _controller = TextEditingController();
+class _ChangePasswordAlertDialogState extends State<ChangePasswordAlertDialog> {
+  final TextEditingController _nameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return CustomAlertDialog(
       title: "Change account name",
       content: DialogTextFormField(
-          controller: _controller, labelText: UserTopInfo.name),
+          controller: _nameController, labelText: UserTopInfo.name),
       onEdit: () {
-        if (_controller.text.trim().isNotEmpty) {
-          UserTopInfo.name = _controller.text;
+        if (_nameController.text.trim().isNotEmpty) {
+          UserTopInfo.name = _nameController.text;
         }
         Navigator.pop(context);
       },
