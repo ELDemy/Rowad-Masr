@@ -12,7 +12,7 @@ class LogoutWidget extends StatelessWidget {
     return OptionRowWidget(
       text: "Log out",
       leftIcon: SvgPicture.asset(ProfileIcons.logout),
-      rightArrow: false,
+      hasRightArrow: false,
     );
   }
 }

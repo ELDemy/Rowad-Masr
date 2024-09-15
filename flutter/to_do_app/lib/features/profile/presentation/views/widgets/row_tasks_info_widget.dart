@@ -24,8 +24,8 @@ class _ContainerInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 17),
-      width: 158,
+      padding: const EdgeInsets.symmetric(vertical: 17, horizontal: 30),
+      width: 154,
       decoration: BoxDecoration(
         color: AppColors.kGreyBackgroundColor,
         borderRadius: BorderRadius.circular(4),
