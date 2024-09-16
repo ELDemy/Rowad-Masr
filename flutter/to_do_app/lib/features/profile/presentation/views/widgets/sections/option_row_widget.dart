@@ -17,27 +17,23 @@ class OptionRowWidget extends StatelessWidget {
   final bool hasRightArrow;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        InkWell(
-          borderRadius: BorderRadius.circular(8),
-          onTap: onTap ?? () {},
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16),
-            child: Row(
-              children: [
-                leftIcon,
-                const SizedBox(width: 10),
-                Text(text, style: const TextStyle(fontSize: 16)),
-                const Spacer(),
-                hasRightArrow
-                    ? SvgPicture.asset(ProfileIcons.arrow)
-                    : const SizedBox(),
-              ],
-            ),
-          ),
+    return InkWell(
+      borderRadius: BorderRadius.circular(8),
+      onTap: onTap ?? () {},
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 16),
+        child: Row(
+          children: [
+            leftIcon,
+            const SizedBox(width: 10),
+            Text(text, style: const TextStyle(fontSize: 16)),
+            const Spacer(),
+            hasRightArrow
+                ? SvgPicture.asset(ProfileIcons.arrow)
+                : const SizedBox(),
+          ],
         ),
-      ],
+      ),
     );
   }
 }

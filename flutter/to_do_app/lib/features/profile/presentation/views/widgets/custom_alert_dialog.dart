@@ -7,19 +7,14 @@ class CustomAlertDialog extends StatelessWidget {
     required this.title,
     required this.content,
     this.onEdit,
-    this.alignmentGeometry,
-    this.withActions = true,
   });
 
   final String title;
   final Widget content;
   final VoidCallback? onEdit;
-  final AlignmentGeometry? alignmentGeometry;
-  final bool withActions;
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      alignment: alignmentGeometry,
       backgroundColor: AppColors.kGreyBackgroundColor,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
       insetPadding: const EdgeInsets.symmetric(horizontal: 0),
@@ -28,7 +23,7 @@ class CustomAlertDialog extends StatelessWidget {
       actionsPadding: const EdgeInsets.only(bottom: 8, right: 8, left: 8),
       title: _dialogTitle(),
       content: content,
-      actions: withActions ? _dialogActions(context) : null,
+      actions: _dialogActions(context),
     );
   }
 
@@ -77,7 +72,7 @@ class _ActionContainer extends StatelessWidget {
 
   final String text;
   final Color? backgroundColor;
-  final Color? foregroundColor;
+  final Color foregroundColor;
   final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
