@@ -22,19 +22,19 @@ class CustomAlertDialog extends StatelessWidget {
       alignment: alignmentGeometry,
       backgroundColor: AppColors.kGreyBackgroundColor,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
-      insetPadding: const EdgeInsets.all(0),
+      insetPadding: const EdgeInsets.symmetric(horizontal: 0),
       titlePadding: const EdgeInsets.only(right: 8, left: 8, bottom: 16),
       contentPadding: const EdgeInsets.symmetric(horizontal: 20),
       actionsPadding: const EdgeInsets.only(bottom: 8, right: 8, left: 8),
-      title: _DialogTitle(),
+      title: _dialogTitle(),
       content: content,
-      actions: withActions ? _DialogActions(context) : null,
+      actions: withActions ? _dialogActions(context) : null,
     );
   }
 
-  Container _DialogTitle() {
+  Container _dialogTitle() {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 11),
       decoration: const BoxDecoration(
           border: Border(bottom: BorderSide(color: Color(0xff979797)))),
       alignment: Alignment.center,
@@ -48,7 +48,7 @@ class CustomAlertDialog extends StatelessWidget {
     );
   }
 
-  List<Widget> _DialogActions(BuildContext context) {
+  List<Widget> _dialogActions(BuildContext context) {
     return [
       _ActionContainer(
         text: "Cancel",
