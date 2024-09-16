@@ -18,7 +18,7 @@ class ProfileBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 24),
+            SizedBox(height: 12),
             UserTopInfo(),
             SizedBox(height: 20),
             TasksInfoWidget(),

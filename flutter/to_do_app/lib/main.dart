@@ -15,12 +15,15 @@ class ToDoApp extends StatelessWidget {
     return MaterialApp(
       title: "Up todo",
       theme: ThemeData(
-          primaryColor: AppColors.kPrimaryColor,
-          textTheme: GoogleFonts.latoTextTheme(ThemeData.dark().textTheme),
-          brightness: Brightness.dark,
-          appBarTheme: const AppBarTheme(
-              backgroundColor: Colors.transparent,
-              surfaceTintColor: Colors.transparent)),
+        primaryColor: AppColors.kPrimaryColor,
+        textTheme: GoogleFonts.latoTextTheme(ThemeData.dark().textTheme),
+        brightness: Brightness.dark,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.transparent,
+          surfaceTintColor: Colors.transparent,
+          centerTitle: true,
+        ),
+      ),
       home: const MyPersistentBottomNavBar(),
     );
   }
