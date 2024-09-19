@@ -41,7 +41,7 @@ class NavBarData {
         ),
         const AddTodoView(): PersistentBottomNavBarItem(
           icon: SvgPicture.asset(NavIcons.add),
-          activeColorPrimary: AppColors.kPrimaryColor,
+          activeColorPrimary: AppColors.purplePrimaryColor,
           routeAndNavigatorSettings:
               RouteAndNavigatorSettings(initialRoute: "/", routes: _routes),
         ),

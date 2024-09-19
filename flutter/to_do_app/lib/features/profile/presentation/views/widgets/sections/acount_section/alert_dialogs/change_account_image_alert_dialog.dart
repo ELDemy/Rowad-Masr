@@ -9,7 +9,7 @@ class ChangeImageAlertDialog extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     return AlertDialog(
       alignment: Alignment.bottomCenter,
-      backgroundColor: AppColors.kGreyBackgroundColor,
+      backgroundColor: AppColors.greyBackgroundColor,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
       insetPadding: const EdgeInsets.symmetric(horizontal: 0),
       titlePadding: const EdgeInsets.only(right: 32, left: 32, bottom: 17),

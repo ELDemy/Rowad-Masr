@@ -27,7 +27,7 @@ class _ContainerInfo extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 17, horizontal: 30),
       width: 154,
       decoration: BoxDecoration(
-        color: AppColors.kGreyBackgroundColor,
+        color: AppColors.greyBackgroundColor,
         borderRadius: BorderRadius.circular(4),
       ),
       child: Center(

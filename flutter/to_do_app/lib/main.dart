@@ -15,7 +15,7 @@ class ToDoApp extends StatelessWidget {
     return MaterialApp(
       title: "Up todo",
       theme: ThemeData(
-        primaryColor: AppColors.kPrimaryColor,
+        primaryColor: AppColors.purplePrimaryColor,
         textTheme: GoogleFonts.latoTextTheme(ThemeData.dark().textTheme),
         brightness: Brightness.dark,
         appBarTheme: const AppBarTheme(

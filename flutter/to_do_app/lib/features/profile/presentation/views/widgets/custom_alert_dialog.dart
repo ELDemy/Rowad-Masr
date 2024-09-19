@@ -15,7 +15,7 @@ class CustomAlertDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: AppColors.kGreyBackgroundColor,
+      backgroundColor: AppColors.greyBackgroundColor,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
       insetPadding: const EdgeInsets.symmetric(horizontal: 0),
       titlePadding: const EdgeInsets.only(right: 8, left: 8, bottom: 16),
@@ -47,7 +47,7 @@ class CustomAlertDialog extends StatelessWidget {
     return [
       _ActionContainer(
         text: "Cancel",
-        foregroundColor: AppColors.kPrimaryColor,
+        foregroundColor: AppColors.purplePrimaryColor,
         onTap: () {
           Navigator.pop(context);
         },
@@ -55,7 +55,7 @@ class CustomAlertDialog extends StatelessWidget {
       const SizedBox(width: 5),
       _ActionContainer(
         text: "Edit",
-        backgroundColor: AppColors.kPrimaryColor,
+        backgroundColor: AppColors.purplePrimaryColor,
         onTap: onEdit,
       ),
     ];
