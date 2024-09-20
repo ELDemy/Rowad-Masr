@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class AppColors {
   static const Color purplePrimaryColor = Color(0xff8687E7);
   static const Color greyBackgroundColor = Color(0xff363636);
+  static const Color darkGreyColor = Color(0xff272727);
+  static Color whiteWithOpacity = Colors.white.withOpacity(.87);
 
   static const Color white = Color(0xffffffff);
   static const Color black = Color(0xff000000);

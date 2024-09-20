@@ -40,6 +40,11 @@ dependencies:
   google_fonts: ^6.2.1
   persistent_bottom_nav_bar: ^6.2.1
   font_awesome_flutter: ^10.7.0
+  flutter_calendar_week: ^3.0.2
+
+  carousel_slider_plus: ^7.0.1
+#  horizontal_week_calendar: ^0.0.18
+
 
 dev_dependencies:
   flutter_test:

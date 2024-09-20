@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:to_do_app/core/utiles/app_colors.dart';
-import 'package:to_do_app/features/bottom_nav_bar/presentation/views/bottom_nav_view.dart';
+import 'package:to_do_app/features/calendar/presentation/views/calendar_view.dart';
 
 void main() {
   runApp(const ToDoApp());
@@ -24,7 +24,7 @@ class ToDoApp extends StatelessWidget {
           centerTitle: true,
         ),
       ),
-      home: const MyPersistentBottomNavBar(),
+      home: const CalendarView(),
     );
   }
 }
