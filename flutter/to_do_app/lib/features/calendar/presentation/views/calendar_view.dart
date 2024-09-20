@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_app/features/calendar/presentation/views/widgets/calendar/horizontal_calendar.dart';
+import 'package:to_do_app/features/calendar/presentation/views/widgets/tasks_filter/tasks_filter.dart';
 
 class CalendarView extends StatelessWidget {
   const CalendarView({super.key});
@@ -11,9 +12,8 @@ class CalendarView extends StatelessWidget {
       body: const Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // CalenderWeek(),
           HorizontalWeek(),
-          // _tasksFilter(),
+          TasksFilter(),
           // _tasksList(),
         ],
       ),
