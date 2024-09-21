@@ -1,14 +1,16 @@
+import 'package:flutter/cupertino.dart';
+
 class TaskModel {
   final String title;
-  final String description;
+  final String? description;
   final DateTime dateTime;
-  final String? category;
+  final CategoryModel? category;
   final int priority;
   final List<TaskModel> subTasks = [];
 
   TaskModel({
     required this.title,
-    required this.description,
+    this.description,
     required this.dateTime,
     this.category,
     this.priority = 1,
@@ -17,4 +19,13 @@ class TaskModel {
   void addSubTask(TaskModel taskModel) {
     subTasks.add(taskModel);
   }
+}
+
+class CategoryModel {
+  final String category;
+  final Color color;
+  final Icon icon;
+
+  CategoryModel(
+      {required this.category, required this.color, required this.icon});
 }
