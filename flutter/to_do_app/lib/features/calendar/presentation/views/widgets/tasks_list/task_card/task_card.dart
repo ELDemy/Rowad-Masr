@@ -35,7 +35,7 @@ class TaskCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _taskTime(),
-                    const TaskProps(),
+                    TaskProps(taskModel: taskModel),
                   ],
                 )
               ],

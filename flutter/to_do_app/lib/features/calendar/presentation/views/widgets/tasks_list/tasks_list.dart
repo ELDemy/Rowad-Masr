@@ -12,7 +12,15 @@ class TasksListView extends StatefulWidget {
 
 class _TasksListViewState extends State<TasksListView> {
   final List<TaskModel> tasksList = [
-    TaskModel(title: "Business meeting with CEO", dateTime: DateTime.now()),
+    TaskModel(
+      title: "Business meeting with CEO",
+      dateTime: DateTime.now(),
+      category: CategoryModel(
+        category: "category",
+        color: const Color(0xffFFCC80),
+        icon: Icons.work_outline_rounded,
+      ),
+    ),
   ];
 
   @override

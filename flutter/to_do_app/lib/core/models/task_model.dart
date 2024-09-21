@@ -4,7 +4,7 @@ class TaskModel {
   final String title;
   final String? description;
   final DateTime dateTime;
-  final CategoryModel? category;
+  final CategoryModel category;
   final int priority;
   final List<TaskModel> subTasks = [];
 
@@ -12,7 +12,7 @@ class TaskModel {
     required this.title,
     this.description,
     required this.dateTime,
-    this.category,
+    required this.category,
     this.priority = 1,
   });
 
@@ -24,7 +24,7 @@ class TaskModel {
 class CategoryModel {
   final String category;
   final Color color;
-  final Icon icon;
+  final IconData icon;
 
   CategoryModel(
       {required this.category, required this.color, required this.icon});

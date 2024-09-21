@@ -16,4 +16,9 @@ class TasksCubit extends Cubit<TasksState> {
     tasksList.add(taskModel);
     emit(ShowTasks(tasksList));
   }
+
+  removeTask(TaskModel taskModel) {
+    tasksList.remove(taskModel);
+    getTasksList();
+  }
 }
