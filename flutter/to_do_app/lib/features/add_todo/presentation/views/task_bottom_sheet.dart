@@ -13,16 +13,6 @@ class AddTaskBottomSheet extends StatefulWidget {
 }
 
 class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
-  final TaskModel tasksList = TaskModel(
-    title: "Business meeting with CEO",
-    dateTime: DateTime.now(),
-    category: CategoryModel(
-      category: "category",
-      color: const Color(0xffFFCC80),
-      icon: Icons.work_outline_rounded,
-    ),
-  );
-
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
 
@@ -80,7 +70,17 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
   IconButton _submitTaskAction() {
     return IconButton(
       onPressed: () {
-        BlocProvider.of<TasksCubit>(context).addTask(tasksList);
+        final TaskModel taskModel = TaskModel(
+          title: _titleController.text,
+          description: _descriptionController.text,
+          dateTime: DateTime.now(),
+          category: CategoryModel(
+            category: "category",
+            color: const Color(0xffFFCC80),
+            icon: Icons.work_outline_rounded,
+          ),
+        );
+        BlocProvider.of<TasksCubit>(context).addTask(taskModel);
         Navigator.pop(context);
         // NavBarData.controller.jumpToTab(1);
       },

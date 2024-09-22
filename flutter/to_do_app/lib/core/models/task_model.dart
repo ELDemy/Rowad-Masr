@@ -7,7 +7,7 @@ class TaskModel {
   final CategoryModel category;
   final int priority;
   final List<TaskModel> subTasks = [];
-
+  bool isCompleted = false;
   TaskModel({
     required this.title,
     this.description,

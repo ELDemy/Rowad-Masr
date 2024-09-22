@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:to_do_app/core/state_management/tasks_cubit/tasks_cubit.dart';
 import 'package:to_do_app/core/utiles/app_colors.dart';
 
 import 'action_container.dart';
@@ -31,6 +33,7 @@ class _TasksFilterState extends State<TasksFilter> {
             text: "Today",
             filter: filterToday,
             onTap: () {
+              BlocProvider.of<TasksCubit>(context).tasksViewType = false;
               setState(() {
                 filterToday = true;
                 filterCompleted = false;
@@ -42,6 +45,7 @@ class _TasksFilterState extends State<TasksFilter> {
             text: "Completed",
             filter: filterCompleted,
             onTap: () {
+              BlocProvider.of<TasksCubit>(context).tasksViewType = true;
               setState(() {
                 filterToday = false;
                 filterCompleted = true;

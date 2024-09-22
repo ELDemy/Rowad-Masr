@@ -19,6 +19,7 @@ class _TasksListViewState extends State<TasksListView> {
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: BlocBuilder<TasksCubit, TasksState>(
           builder: (context, state) {
+            print(state);
             if (state is ShowTasks) {
               return ListView.builder(
                 itemCount: state.tasksList.length,
