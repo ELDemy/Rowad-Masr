@@ -6,6 +6,7 @@ class AppColors {
   static const Color darkGreyColor = Color(0xff272727);
   static const Color lightGrey = Color(0xff4C4C4C);
   static const Color lightWight = Color(0xffAFAFAF);
+  static const Color greyOutline = Color(0xff979797);
 
   static Color whiteWithOpacity = Colors.white.withOpacity(.87);
   static const Color white = Color(0xffffffff);

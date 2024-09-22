@@ -10,7 +10,7 @@ class MyPersistentBottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return PersistentTabView(
       context,
-      controller: NavBarData().controller,
+      controller: NavBarData.controller,
       screens: NavBarData().buildScreens(),
       items: NavBarData().navBarsItems(),
       navBarStyle: NavBarStyle.style15,
@@ -35,6 +35,7 @@ class MyPersistentBottomNavBar extends StatelessWidget {
       stateManagement: true, // Default is true.
       hideNavigationBarWhenKeyboardAppears: true,
       popBehaviorOnSelectedNavBarItemPress: PopBehavior.all,
+      onItemSelected: (value) {},
     );
   }
 }
