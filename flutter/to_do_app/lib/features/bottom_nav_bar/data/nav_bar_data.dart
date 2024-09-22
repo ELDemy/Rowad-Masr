@@ -57,9 +57,10 @@ class NavBarData {
               context,
               withNavBar: false,
               screen: ModalBottomSheetRoute(
+                enableDrag: true,
                 isScrollControlled: true,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(4),
+                  borderRadius: BorderRadius.circular(16),
                 ),
                 backgroundColor: AppColors.greyBackgroundColor,
                 builder: (context) {

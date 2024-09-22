@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:to_do_app/core/models/task_model.dart';
 import 'package:to_do_app/core/state_management/tasks_cubit/tasks_cubit.dart';
-import 'package:to_do_app/core/utiles/app_colors.dart';
 import 'package:to_do_app/features/add_todo/presentation/views/bottom_sheet_text_field.dart';
 
 class AddTaskBottomSheet extends StatefulWidget {
@@ -25,23 +25,27 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
         right: 17,
         bottom: MediaQuery.of(context).viewInsets.bottom,
       ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _title(),
-          const SizedBox(height: 14),
-          BottomSheetTextFormField(
-            controller: _titleController,
-            hintText: "Title",
-          ),
-          BottomSheetTextFormField(
-            controller: _descriptionController,
-            hintText: "Description",
-          ),
-          const SizedBox(height: 19),
-          _taskActions(),
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _title(),
+            const SizedBox(height: 14),
+            BottomSheetTextFormField(
+              controller: _titleController,
+              hintText: "Title",
+              autofocus: true,
+            ),
+            BottomSheetTextFormField(
+              controller: _descriptionController,
+              hintText: "Description",
+              maxLines: 15,
+            ),
+            const SizedBox(height: 19),
+            _taskActions(),
+          ],
+        ),
       ),
     );
   }
@@ -58,18 +62,22 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
   }
 
   Widget _taskActions() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        _taskPropsActions(),
-        _submitTaskAction(),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          _taskPropsActions(),
+          _submitTaskAction(),
+        ],
+      ),
     );
   }
 
-  IconButton _submitTaskAction() {
-    return IconButton(
-      onPressed: () {
+  Widget _submitTaskAction() {
+    return InkWell(
+      onTap: () {
         final TaskModel taskModel = TaskModel(
           title: _titleController.text,
           description: _descriptionController.text,
@@ -84,10 +92,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
         Navigator.pop(context);
         // NavBarData.controller.jumpToTab(1);
       },
-      icon: const Icon(
-        Icons.send,
-        color: AppColors.purplePrimaryColor,
-      ),
+      child: SvgPicture.asset('assets/icons/task_props_icons/send.svg'),
     );
   }
 
@@ -96,32 +101,19 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
       padding: const EdgeInsets.only(bottom: 7),
       child: Row(
         children: [
-          IconButton(
-            padding: const EdgeInsets.only(right: 32),
-            constraints: const BoxConstraints(),
-            style: IconButton.styleFrom(
-              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            ),
-            onPressed: () {},
-            icon: const Icon(Icons.timer_outlined),
+          InkWell(
+            onTap: () {},
+            child: SvgPicture.asset('assets/icons/task_props_icons/timer.svg'),
           ),
-          IconButton(
-            padding: const EdgeInsets.only(right: 32),
-            constraints: const BoxConstraints(),
-            style: IconButton.styleFrom(
-              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            ),
-            onPressed: () {},
-            icon: const Icon(Icons.timer_outlined),
+          const SizedBox(width: 32),
+          InkWell(
+            onTap: () {},
+            child: SvgPicture.asset('assets/icons/task_props_icons/tag.svg'),
           ),
-          IconButton(
-            padding: const EdgeInsets.only(right: 32),
-            constraints: const BoxConstraints(),
-            style: IconButton.styleFrom(
-              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            ),
-            onPressed: () {},
-            icon: const Icon(Icons.timer_outlined),
+          const SizedBox(width: 32),
+          InkWell(
+            onTap: () {},
+            child: SvgPicture.asset('assets/icons/task_props_icons/flag.svg'),
           ),
         ],
       ),
