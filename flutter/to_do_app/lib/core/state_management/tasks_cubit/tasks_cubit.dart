@@ -1,13 +1,22 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:to_do_app/core/models/task_model.dart';
+import 'package:to_do_app/helper/datetime_extension.dart';
 
 part 'tasks_state.dart';
 
 class TasksCubit extends Cubit<TasksState> {
   TasksCubit() : super(TasksInitial());
 
-  List<TaskModel> tasksList = [];
+  final List<TaskModel> _tasksList = [];
+  late List<TaskModel> _selectedDateTasksList;
+
+  DateTime _dateTime = DateTime.now();
+
+  set dateTime(DateTime dateTime) {
+    _dateTime = dateTime;
+    showTasks();
+  }
 
   // false to show today tasks
   // true to show completed tasks
@@ -19,18 +28,22 @@ class TasksCubit extends Cubit<TasksState> {
   }
 
   void showTasks() {
+    _selectedDateTasksList = _tasksList
+        .where((task) => task.dateTime.isSameDate(_dateTime))
+        .toList();
+
     _tasksViewType ? getCompletedTasks() : getUncompletedTasks();
   }
 
   getCompletedTasks() {
     _listCheck(
-      tasksList.where((task) => task.isCompleted).toList(),
+      _selectedDateTasksList.where((task) => task.isCompleted).toList(),
     );
   }
 
   getUncompletedTasks() {
     _listCheck(
-      tasksList.where((task) => !task.isCompleted).toList(),
+      _selectedDateTasksList.where((task) => !task.isCompleted).toList(),
     );
   }
 
@@ -39,12 +52,12 @@ class TasksCubit extends Cubit<TasksState> {
   }
 
   addTask(TaskModel taskModel) {
-    tasksList.add(taskModel);
+    _tasksList.add(taskModel);
     showTasks();
   }
 
   removeTask(TaskModel taskModel) {
-    tasksList.remove(taskModel);
+    _tasksList.remove(taskModel);
     showTasks();
   }
 }

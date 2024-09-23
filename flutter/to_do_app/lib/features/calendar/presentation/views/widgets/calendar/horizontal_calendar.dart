@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:to_do_app/core/state_management/tasks_cubit/tasks_cubit.dart';
 import 'package:to_do_app/core/utiles/app_colors.dart';
 import 'package:to_do_app/features/calendar/presentation/views/widgets/calendar/horizontal_week_calendar.dart';
 
@@ -13,6 +15,7 @@ class HorizontalWeek extends StatelessWidget {
       initialDate: DateTime.now(),
       onDateChange: (date) {
         print(date);
+        BlocProvider.of<TasksCubit>(context).dateTime = date;
       },
       weekStartFrom: WeekStartFrom.Sunday,
       showNavigationButtons: true,
