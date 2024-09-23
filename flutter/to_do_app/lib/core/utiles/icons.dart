@@ -19,5 +19,5 @@ class ProfileIcons {
   static String like = 'assets/icons/profile_icons/like.svg';
   static String logout = 'assets/icons/profile_icons/logout.svg';
   static String menu = 'assets/icons/profile_icons/menu.svg';
-  static String user = 'assets/icons/profile_icons/user.svg';
+  static String user = 'assets/icons/user.svg';
 }

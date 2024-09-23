@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:to_do_app/core/utiles/app_colors.dart';
 import 'package:to_do_app/core/widgets/action_container.dart';
+import 'package:to_do_app/features/add_todo/data/add_task_cubit/add_task_cubit.dart';
 import 'package:to_do_app/features/add_todo/presentation/views/select_date_dialog/month_calendar.dart';
 
 class CalendarSelectionView extends StatelessWidget {
@@ -19,7 +21,12 @@ class CalendarSelectionView extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            MonthCalendar(initialDate: DateTime.now()),
+            MonthCalendar(
+              initialDate: DateTime.now(),
+              onDateSelected: (date) {
+                BlocProvider.of<AddTaskCubit>(context).dateTime = date;
+              },
+            ),
           ],
         ),
       ),
@@ -40,7 +47,9 @@ class CalendarSelectionView extends StatelessWidget {
       ActionContainer(
         text: "Choose Time",
         backgroundColor: AppColors.purplePrimaryColor,
-        onTap: () {},
+        onTap: () {
+          Navigator.pop(context);
+        },
       ),
     ];
   }
