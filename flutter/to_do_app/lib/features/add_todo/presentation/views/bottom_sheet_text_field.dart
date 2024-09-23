@@ -60,7 +60,7 @@ class _BottomSheetTextFormFieldState extends State<BottomSheetTextFormField> {
         decoration: InputDecoration(
           border: const OutlineInputBorder(borderSide: BorderSide.none),
           hintText: widget.hintText,
-          hintStyle: const TextStyle(color: AppColors.lightWight),
+          hintStyle: const TextStyle(color: AppColors.lightWhite),
           focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(
               color: AppColors.greyOutline,

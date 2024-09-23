@@ -91,7 +91,7 @@ class _TaskCardState extends State<TaskCard> {
         style: const TextStyle(
           fontSize: 14,
           height: 21 / 14,
-          color: AppColors.lightWight,
+          color: AppColors.lightWhite,
           overflow: TextOverflow.ellipsis,
         ),
       ),

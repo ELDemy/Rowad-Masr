@@ -12,8 +12,7 @@ class CalendarSelectionView extends StatelessWidget {
       backgroundColor: AppColors.greyBackgroundColor,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
       insetPadding: const EdgeInsets.symmetric(horizontal: 24),
-      titlePadding: const EdgeInsets.only(right: 8, left: 8, bottom: 16),
-      contentPadding: const EdgeInsets.symmetric(horizontal: 0),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
       actionsPadding: const EdgeInsets.only(bottom: 8, right: 8, left: 8),
       content: SizedBox(
         width: MediaQuery.sizeOf(context).width,
