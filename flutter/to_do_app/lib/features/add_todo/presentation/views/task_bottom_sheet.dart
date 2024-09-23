@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:to_do_app/core/models/task_model.dart';
 import 'package:to_do_app/core/state_management/tasks_cubit/tasks_cubit.dart';
 import 'package:to_do_app/features/add_todo/presentation/views/bottom_sheet_text_field.dart';
+import 'package:to_do_app/features/add_todo/presentation/views/select_date_dialog/calendar_selection_view.dart';
 
 class AddTaskBottomSheet extends StatefulWidget {
   const AddTaskBottomSheet({super.key});
@@ -15,6 +16,7 @@ class AddTaskBottomSheet extends StatefulWidget {
 class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
+  DateTime taskDate = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +83,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
         final TaskModel taskModel = TaskModel(
           title: _titleController.text,
           description: _descriptionController.text,
-          dateTime: DateTime.now(),
+          dateTime: taskDate,
           category: CategoryModel(
             category: "category",
             color: const Color(0xffFFCC80),
@@ -102,7 +104,22 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
       child: Row(
         children: [
           InkWell(
-            onTap: () {},
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return const CalendarSelectionView();
+                },
+              );
+              // showDatePicker(
+              //   context: context,
+              //   firstDate: DateTime(2000),
+              //   lastDate: DateTime(2030),
+              //   initialDate: taskDate,
+              // ).then((date) {
+              //   date != null ? taskDate = date : null;
+              // });
+            },
             child: SvgPicture.asset('assets/icons/task_props_icons/timer.svg'),
           ),
           const SizedBox(width: 32),

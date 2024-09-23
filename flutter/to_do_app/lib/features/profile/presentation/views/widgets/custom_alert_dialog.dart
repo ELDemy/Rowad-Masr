@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_app/core/utiles/app_colors.dart';
+import 'package:to_do_app/core/widgets/action_container.dart';
 
 class CustomAlertDialog extends StatelessWidget {
   const CustomAlertDialog({
@@ -45,7 +46,7 @@ class CustomAlertDialog extends StatelessWidget {
 
   List<Widget> _dialogActions(BuildContext context) {
     return [
-      _ActionContainer(
+      ActionContainer(
         text: "Cancel",
         foregroundColor: AppColors.purplePrimaryColor,
         onTap: () {
@@ -53,7 +54,7 @@ class CustomAlertDialog extends StatelessWidget {
         },
       ),
       const SizedBox(width: 5),
-      _ActionContainer(
+      ActionContainer(
         text: "Edit",
         backgroundColor: AppColors.purplePrimaryColor,
         onTap: onEdit,
@@ -61,40 +62,40 @@ class CustomAlertDialog extends StatelessWidget {
     ];
   }
 }
-
-class _ActionContainer extends StatelessWidget {
-  const _ActionContainer({
-    required this.text,
-    this.backgroundColor,
-    this.foregroundColor = Colors.white,
-    this.onTap,
-  });
-
-  final String text;
-  final Color? backgroundColor;
-  final Color foregroundColor;
-  final VoidCallback? onTap;
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
-        width: 154,
-        decoration: BoxDecoration(
-          color: backgroundColor,
-          borderRadius: BorderRadius.circular(4),
-        ),
-        alignment: Alignment.center,
-        child: Text(
-          text,
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w400,
-            color: foregroundColor,
-          ),
-        ),
-      ),
-    );
-  }
-}
+//
+// class _ActionContainer extends StatelessWidget {
+//   const _ActionContainer({
+//     required this.text,
+//     this.backgroundColor,
+//     this.foregroundColor = Colors.white,
+//     this.onTap,
+//   });
+//
+//   final String text;
+//   final Color? backgroundColor;
+//   final Color foregroundColor;
+//   final VoidCallback? onTap;
+//   @override
+//   Widget build(BuildContext context) {
+//     return InkWell(
+//       onTap: onTap,
+//       child: Container(
+//         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+//         width: 154,
+//         decoration: BoxDecoration(
+//           color: backgroundColor,
+//           borderRadius: BorderRadius.circular(4),
+//         ),
+//         alignment: Alignment.center,
+//         child: Text(
+//           text,
+//           style: TextStyle(
+//             fontSize: 16,
+//             fontWeight: FontWeight.w400,
+//             color: foregroundColor,
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }

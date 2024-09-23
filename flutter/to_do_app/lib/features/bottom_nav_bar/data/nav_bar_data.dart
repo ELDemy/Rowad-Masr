@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:to_do_app/core/utiles/app_colors.dart';
 import 'package:to_do_app/core/utiles/icons.dart';
-import 'package:to_do_app/features/add_todo/presentation/views/add_todo_view.dart';
 import 'package:to_do_app/features/add_todo/presentation/views/task_bottom_sheet.dart';
 import 'package:to_do_app/features/calendar/presentation/views/calendar_view.dart';
 import 'package:to_do_app/features/focus/presentation/views/focus_view.dart';
@@ -11,8 +10,7 @@ import 'package:to_do_app/features/home/presentation/views/home_view.dart';
 import 'package:to_do_app/features/profile/presentation/views/profile_view.dart';
 
 class NavBarData {
-  static PersistentTabController controller =
-      PersistentTabController(initialIndex: 0);
+  PersistentTabController controller = PersistentTabController(initialIndex: 0);
 
   final Map<String, WidgetBuilder> _routes = {
     "/CalendarView": (final context) => const CalendarView(),
@@ -21,10 +19,7 @@ class NavBarData {
 
   Map<Widget, PersistentBottomNavBarItem> _navBarData() => {
         const HomeView(): PersistentBottomNavBarItem(
-          icon: SvgPicture.asset(
-            NavIcons.homeActive,
-            height: 24,
-          ),
+          icon: SvgPicture.asset(NavIcons.homeActive, height: 24),
           inactiveIcon: SvgPicture.asset(NavIcons.homeInActive, height: 24),
           title: ("Index"),
           activeColorPrimary: Colors.white,
@@ -33,15 +28,13 @@ class NavBarData {
         ),
         const CalendarView(): PersistentBottomNavBarItem(
           icon: SvgPicture.asset(NavIcons.calendarActive),
-          inactiveIcon: SvgPicture.asset(
-            NavIcons.calendarInActive,
-          ),
+          inactiveIcon: SvgPicture.asset(NavIcons.calendarInActive),
           title: ("Calendar"),
           activeColorPrimary: Colors.white,
           routeAndNavigatorSettings:
               RouteAndNavigatorSettings(initialRoute: "/", routes: _routes),
         ),
-        const AddTodoView(): PersistentBottomNavBarItem(
+        const AddTaskBottomSheet(): PersistentBottomNavBarItem(
           icon: SvgPicture.asset(NavIcons.add),
           activeColorPrimary: AppColors.purplePrimaryColor,
           onPressed: (context) {
