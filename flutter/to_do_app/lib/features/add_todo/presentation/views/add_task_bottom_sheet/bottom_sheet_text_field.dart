@@ -21,7 +21,7 @@ class BottomSheetTextFormField extends StatefulWidget {
 }
 
 class _BottomSheetTextFormFieldState extends State<BottomSheetTextFormField> {
-  FocusNode _focusNode = FocusNode();
+  final FocusNode _focusNode = FocusNode();
   bool _isFocused = false;
 
   @override

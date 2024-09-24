@@ -10,8 +10,11 @@ class AddTaskCubit extends Cubit<AddTaskState> {
   String description = '';
   DateTime dateTime = DateTime.now();
   int priority = 1;
-  CategoryModel category =
-      CategoryModel(category: "category", color: Colors.white, icon: Icons.add);
+  CategoryModel category = CategoryModel(
+    category: "category",
+    color: Color(0xff809CFF),
+    icon: Icons.medical_information,
+  );
 
   TaskModel getTask() {
     return TaskModel(
