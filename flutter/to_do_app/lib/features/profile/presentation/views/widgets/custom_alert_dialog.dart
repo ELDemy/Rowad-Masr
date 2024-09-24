@@ -8,11 +8,13 @@ class CustomAlertDialog extends StatelessWidget {
     required this.title,
     required this.content,
     this.onEdit,
+    this.editButtonText = "Edit",
   });
 
   final String title;
   final Widget content;
   final VoidCallback? onEdit;
+  final String editButtonText;
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -55,7 +57,7 @@ class CustomAlertDialog extends StatelessWidget {
       ),
       const SizedBox(width: 5),
       ActionContainer(
-        text: "Edit",
+        text: editButtonText,
         backgroundColor: AppColors.purplePrimaryColor,
         onTap: onEdit,
       ),
