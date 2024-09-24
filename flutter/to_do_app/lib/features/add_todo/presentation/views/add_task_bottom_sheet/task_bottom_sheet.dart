@@ -3,10 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:to_do_app/core/models/task_model.dart';
 import 'package:to_do_app/core/state_management/tasks_cubit/tasks_cubit.dart';
+import 'package:to_do_app/core/utiles/icons.dart';
 import 'package:to_do_app/features/add_todo/data/add_task_cubit/add_task_cubit.dart';
 import 'package:to_do_app/features/add_todo/presentation/views/select_date_dialog/calendar_selection_view.dart';
 
-import 'bottom_sheet_text_field.dart';
+import 'widgets/add_task_form_fields.dart';
 
 class AddTaskBottomSheet extends StatefulWidget {
   const AddTaskBottomSheet({super.key});
@@ -16,23 +17,21 @@ class AddTaskBottomSheet extends StatefulWidget {
 }
 
 class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
-  late BuildContext cubitContext;
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (cubitContext) => AddTaskCubit(),
+      create: (context) => AddTaskCubit(),
       child: BlocBuilder<AddTaskCubit, AddTaskState>(
-        builder: (AddTaskCubitContext, state) {
-          cubitContext = AddTaskCubitContext;
+        builder: (cubitContext, state) {
           return Padding(
             padding: EdgeInsets.only(
               top: 25,
               left: 25,
               right: 17,
-              bottom: MediaQuery.of(AddTaskCubitContext).viewInsets.bottom,
+              bottom: MediaQuery.of(context).viewInsets.bottom,
             ),
             child: SingleChildScrollView(
               child: Column(
@@ -40,19 +39,15 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   _title(),
-                  const SizedBox(height: 14),
-                  BottomSheetTextFormField(
-                    controller: _titleController,
-                    hintText: "Title",
-                    autofocus: true,
+                  AddTaskFormFields(
+                    titleController: _titleController,
+                    descriptionController: _descriptionController,
                   ),
-                  BottomSheetTextFormField(
-                    controller: _descriptionController,
-                    hintText: "Description",
-                    maxLines: 15,
+                  AddTaskActions(
+                    cubitContext: cubitContext,
+                    titleController: _titleController,
+                    descriptionController: _descriptionController,
                   ),
-                  const SizedBox(height: 19),
-                  _taskActions(),
                 ],
               ),
             ),
@@ -72,27 +67,41 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
       ),
     );
   }
+}
 
-  Widget _taskActions() {
+class AddTaskActions extends StatelessWidget {
+  const AddTaskActions({
+    super.key,
+    required this.cubitContext,
+    required this.titleController,
+    required this.descriptionController,
+  });
+
+  final BuildContext cubitContext;
+  final TextEditingController titleController;
+  final TextEditingController descriptionController;
+
+  @override
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          _taskPropsActions(),
-          _submitTaskAction(),
+          _taskPropsActions(context),
+          _submitTaskAction(context),
         ],
       ),
     );
   }
 
-  Widget _taskPropsActions() {
+  Widget _taskPropsActions(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 7),
       child: Row(
         children: [
-          InkWell(
+          GestureDetector(
             onTap: () {
               showDialog(
                 context: context,
@@ -102,34 +111,34 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
                 ),
               );
             },
-            child: SvgPicture.asset('assets/icons/task_props_icons/timer.svg'),
+            child: SvgPicture.asset(TaskIcons.timer),
           ),
           const SizedBox(width: 32),
           InkWell(
             onTap: () {},
-            child: SvgPicture.asset('assets/icons/task_props_icons/tag.svg'),
+            child: SvgPicture.asset(TaskIcons.tag),
           ),
           const SizedBox(width: 32),
           InkWell(
             onTap: () {},
-            child: SvgPicture.asset('assets/icons/task_props_icons/flag.svg'),
+            child: SvgPicture.asset(TaskIcons.flag),
           ),
         ],
       ),
     );
   }
 
-  Widget _submitTaskAction() {
+  Widget _submitTaskAction(BuildContext context) {
     return InkWell(
       onTap: () {
         AddTaskCubit cubit = BlocProvider.of<AddTaskCubit>(cubitContext);
-        cubit.title = _titleController.text;
-        cubit.description = _descriptionController.text;
+        cubit.title = titleController.text;
+        cubit.description = descriptionController.text;
         final TaskModel taskModel = cubit.getTask();
         BlocProvider.of<TasksCubit>(context).addTask(taskModel);
         Navigator.pop(context);
       },
-      child: SvgPicture.asset('assets/icons/task_props_icons/send.svg'),
+      child: SvgPicture.asset(TaskIcons.send),
     );
   }
 }

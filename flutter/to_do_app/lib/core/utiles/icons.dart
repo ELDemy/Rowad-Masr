@@ -21,3 +21,10 @@ class ProfileIcons {
   static String menu = 'assets/icons/profile_icons/menu.svg';
   static String user = 'assets/icons/user.svg';
 }
+
+class TaskIcons {
+  static String timer = 'assets/icons/task_props_icons/timer.svg';
+  static String tag = 'assets/icons/task_props_icons/tag.svg';
+  static String flag = 'assets/icons/task_props_icons/flag.svg';
+  static String send = 'assets/icons/task_props_icons/send.svg';
+}

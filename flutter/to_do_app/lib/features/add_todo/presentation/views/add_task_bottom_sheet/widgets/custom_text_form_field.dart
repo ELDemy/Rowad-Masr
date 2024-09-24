@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_app/core/utiles/app_colors.dart';
 
-class BottomSheetTextFormField extends StatefulWidget {
-  const BottomSheetTextFormField({
+class CustomTextFormField extends StatefulWidget {
+  const CustomTextFormField({
     super.key,
     required this.controller,
     this.hintText,
@@ -16,11 +16,10 @@ class BottomSheetTextFormField extends StatefulWidget {
   final int maxLines;
 
   @override
-  State<BottomSheetTextFormField> createState() =>
-      _BottomSheetTextFormFieldState();
+  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
 }
 
-class _BottomSheetTextFormFieldState extends State<BottomSheetTextFormField> {
+class _CustomTextFormFieldState extends State<CustomTextFormField> {
   final FocusNode _focusNode = FocusNode();
   bool _isFocused = false;
 
@@ -28,7 +27,6 @@ class _BottomSheetTextFormFieldState extends State<BottomSheetTextFormField> {
   void initState() {
     super.initState();
 
-    // Add a listener to the focus node to detect focus changes
     _focusNode.addListener(() {
       setState(() {
         _isFocused = _focusNode.hasFocus;
@@ -38,7 +36,6 @@ class _BottomSheetTextFormFieldState extends State<BottomSheetTextFormField> {
 
   @override
   void dispose() {
-    // Always dispose the FocusNode when done
     _focusNode.dispose();
     super.dispose();
   }
