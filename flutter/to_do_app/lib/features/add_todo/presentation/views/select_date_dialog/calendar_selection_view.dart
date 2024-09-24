@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
+import 'package:to_do_app/core/models/task_model.dart';
 import 'package:to_do_app/core/utiles/app_colors.dart';
 import 'package:to_do_app/core/widgets/action_container.dart';
-import 'package:to_do_app/features/add_todo/data/add_task_cubit/add_task_cubit.dart';
 import 'package:to_do_app/features/add_todo/presentation/views/select_date_dialog/month_calendar.dart';
 
 class CalendarSelectionView extends StatelessWidget {
@@ -24,7 +24,7 @@ class CalendarSelectionView extends StatelessWidget {
             MonthCalendar(
               initialDate: DateTime.now(),
               onDateSelected: (date) {
-                BlocProvider.of<AddTaskCubit>(context).dateTime = date;
+                GetIt.I.get<TaskModel>().dateTime = date;
               },
             ),
           ],

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get_it/get_it.dart';
 import 'package:to_do_app/core/models/task_model.dart';
 import 'package:to_do_app/core/state_management/tasks_cubit/tasks_cubit.dart';
 import 'package:to_do_app/core/utiles/icons.dart';
-import 'package:to_do_app/features/add_todo/data/add_task_cubit/add_task_cubit.dart';
+import 'package:to_do_app/features/add_todo/data/get_it_add_task.dart';
 import 'package:to_do_app/features/add_todo/presentation/views/select_date_dialog/calendar_selection_view.dart';
 
 import 'widgets/add_task_form_fields.dart';
@@ -17,42 +18,48 @@ class AddTaskBottomSheet extends StatefulWidget {
 }
 
 class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getItTaskModel();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    GetIt.I.unregister<TaskModel>();
+    super.dispose();
+  }
+
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => AddTaskCubit(),
-      child: BlocBuilder<AddTaskCubit, AddTaskState>(
-        builder: (cubitContext, state) {
-          return Padding(
-            padding: EdgeInsets.only(
-              top: 25,
-              left: 25,
-              right: 17,
-              bottom: MediaQuery.of(context).viewInsets.bottom,
+    return Padding(
+      padding: EdgeInsets.only(
+        top: 25,
+        left: 25,
+        right: 17,
+        bottom: MediaQuery.of(context).viewInsets.bottom,
+      ),
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _title(),
+            AddTaskFormFields(
+              titleController: _titleController,
+              descriptionController: _descriptionController,
             ),
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  _title(),
-                  AddTaskFormFields(
-                    titleController: _titleController,
-                    descriptionController: _descriptionController,
-                  ),
-                  AddTaskActions(
-                    cubitContext: cubitContext,
-                    titleController: _titleController,
-                    descriptionController: _descriptionController,
-                  ),
-                ],
-              ),
+            AddTaskActions(
+              titleController: _titleController,
+              descriptionController: _descriptionController,
             ),
-          );
-        },
+          ],
+        ),
       ),
     );
   }
@@ -72,12 +79,10 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
 class AddTaskActions extends StatelessWidget {
   const AddTaskActions({
     super.key,
-    required this.cubitContext,
     required this.titleController,
     required this.descriptionController,
   });
 
-  final BuildContext cubitContext;
   final TextEditingController titleController;
   final TextEditingController descriptionController;
 
@@ -105,10 +110,7 @@ class AddTaskActions extends StatelessWidget {
             onTap: () {
               showDialog(
                 context: context,
-                builder: (_) => BlocProvider.value(
-                  value: BlocProvider.of<AddTaskCubit>(cubitContext),
-                  child: const CalendarSelectionView(),
-                ),
+                builder: (_) => const CalendarSelectionView(),
               );
             },
             child: SvgPicture.asset(TaskIcons.timer),
@@ -131,10 +133,9 @@ class AddTaskActions extends StatelessWidget {
   Widget _submitTaskAction(BuildContext context) {
     return InkWell(
       onTap: () {
-        AddTaskCubit cubit = BlocProvider.of<AddTaskCubit>(cubitContext);
-        cubit.title = titleController.text;
-        cubit.description = descriptionController.text;
-        final TaskModel taskModel = cubit.getTask();
+        final TaskModel taskModel = GetIt.I.get<TaskModel>();
+        taskModel.title = titleController.text;
+        taskModel.description = descriptionController.text;
         BlocProvider.of<TasksCubit>(context).addTask(taskModel);
         Navigator.pop(context);
       },

@@ -1,13 +1,14 @@
 import 'package:flutter/cupertino.dart';
 
 class TaskModel {
-  final String title;
-  final String? description;
-  final DateTime dateTime;
-  final CategoryModel category;
-  final int priority;
+  String title;
+  String? description;
+  DateTime dateTime;
+  CategoryModel category;
+  int priority;
   final List<TaskModel> subTasks = [];
   bool isCompleted = false;
+
   TaskModel({
     required this.title,
     this.description,
