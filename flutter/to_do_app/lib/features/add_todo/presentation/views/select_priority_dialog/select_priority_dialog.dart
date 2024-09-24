@@ -15,6 +15,9 @@ class SelectPriorityDialog extends StatelessWidget {
     return CustomAlertDialog(
       title: "Task Priority",
       editButtonText: "Save",
+      onEdit: () {
+        Navigator.pop(context);
+      },
       content: SizedBox(
         width: MediaQuery.sizeOf(context).width - 90,
         height: 60 * (10 / 3).ceil().toDouble(),
@@ -45,9 +48,7 @@ class _PriorityGridState extends State<_PriorityGrid> {
           borderRadius: BorderRadius.circular(4),
           onTap: () {
             GetIt.I.get<TaskModel>().priority = index + 1;
-            setState(() {
-              isSelected = true;
-            });
+            setState(() => isSelected = true);
           },
           child: _PriorityWidget(isSelected: isSelected, index: index),
         );
