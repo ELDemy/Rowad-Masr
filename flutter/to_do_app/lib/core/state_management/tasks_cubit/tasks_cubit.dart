@@ -29,8 +29,12 @@ class TasksCubit extends Cubit<TasksState> {
 
   void showTasks() {
     _selectedDateTasksList = _tasksList
-        .where((task) => task.dateTime.isSameDate(_dateTime))
-        .toList();
+            .where((task) => task.dateTime.isSameDate(_dateTime))
+            .toList()
+        // ..sort(
+        //   (a, b) => a.dateTime.compareTo(b.dateTime),
+        // )
+        ;
 
     _tasksViewType ? getCompletedTasks() : getUncompletedTasks();
   }
