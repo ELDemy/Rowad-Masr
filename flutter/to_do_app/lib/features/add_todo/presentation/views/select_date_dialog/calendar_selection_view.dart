@@ -4,7 +4,7 @@ import 'package:to_do_app/core/models/task_model.dart';
 import 'package:to_do_app/core/utiles/app_colors.dart';
 import 'package:to_do_app/core/widgets/action_container.dart';
 import 'package:to_do_app/features/add_todo/presentation/views/select_date_dialog/month_calendar.dart';
-import 'package:to_do_app/features/profile/presentation/views/widgets/custom_alert_dialog.dart';
+import 'package:to_do_app/features/add_todo/presentation/views/select_date_dialog/select_time_alert_dialog.dart';
 
 class CalendarSelectionView extends StatelessWidget {
   const CalendarSelectionView({super.key});
@@ -51,13 +51,8 @@ class CalendarSelectionView extends StatelessWidget {
         onTap: () {
           Navigator.pop(context);
           showDialog(
-            context: context,
-            builder: (context) => const CustomAlertDialog(
-              title: "Choose Time",
-              content: SizedBox(),
-              editButtonText: "Save",
-            ),
-          );
+              context: context,
+              builder: (context) => const SelectTimeAlertDialog());
         },
       ),
     ];
