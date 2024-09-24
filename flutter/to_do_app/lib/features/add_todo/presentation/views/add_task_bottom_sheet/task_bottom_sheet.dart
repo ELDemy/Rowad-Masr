@@ -5,8 +5,9 @@ import 'package:get_it/get_it.dart';
 import 'package:to_do_app/core/models/task_model.dart';
 import 'package:to_do_app/core/state_management/tasks_cubit/tasks_cubit.dart';
 import 'package:to_do_app/core/utiles/icons.dart';
+import 'package:to_do_app/core/widgets/custom_alert_dialog.dart';
 import 'package:to_do_app/features/add_todo/data/get_it_add_task.dart';
-import 'package:to_do_app/features/add_todo/presentation/views/select_date_dialog/calendar_selection_view.dart';
+import 'package:to_do_app/features/add_todo/presentation/views/select_date_dialog/select_date_dialog.dart';
 
 import 'widgets/add_task_form_fields.dart';
 
@@ -110,14 +111,19 @@ class AddTaskActions extends StatelessWidget {
             onTap: () {
               showDialog(
                 context: context,
-                builder: (_) => const CalendarSelectionView(),
+                builder: (_) => const SelectDateDialog(),
               );
             },
             child: SvgPicture.asset(TaskIcons.timer),
           ),
           const SizedBox(width: 32),
-          InkWell(
-            onTap: () {},
+          GestureDetector(
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (_) => const SelectCategoryDialog(),
+              );
+            },
             child: SvgPicture.asset(TaskIcons.tag),
           ),
           const SizedBox(width: 32),
@@ -140,6 +146,18 @@ class AddTaskActions extends StatelessWidget {
         Navigator.pop(context);
       },
       child: SvgPicture.asset(TaskIcons.send),
+    );
+  }
+}
+
+class SelectCategoryDialog extends StatelessWidget {
+  const SelectCategoryDialog({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const CustomAlertDialog(
+      title: "Choose Category",
+      content: SizedBox(),
     );
   }
 }

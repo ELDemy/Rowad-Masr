@@ -9,12 +9,15 @@ class CustomAlertDialog extends StatelessWidget {
     required this.content,
     this.onEdit,
     this.editButtonText = "Edit",
+    this.withActions = true,
   });
 
   final String title;
   final Widget content;
   final VoidCallback? onEdit;
   final String editButtonText;
+  final bool withActions;
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -26,7 +29,7 @@ class CustomAlertDialog extends StatelessWidget {
       actionsPadding: const EdgeInsets.only(bottom: 8, right: 8, left: 8),
       title: _dialogTitle(),
       content: content,
-      actions: _dialogActions(context),
+      actions: withActions ? _dialogActions(context) : null,
     );
   }
 

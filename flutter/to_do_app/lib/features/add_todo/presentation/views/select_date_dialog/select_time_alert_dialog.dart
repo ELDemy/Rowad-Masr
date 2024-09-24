@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:to_do_app/core/models/task_model.dart';
+import 'package:to_do_app/core/widgets/custom_alert_dialog.dart';
 import 'package:to_do_app/features/add_todo/presentation/views/select_date_dialog/wheel_time_picker.dart';
-import 'package:to_do_app/features/profile/presentation/views/widgets/custom_alert_dialog.dart';
 
 class SelectTimeAlertDialog extends StatelessWidget {
   const SelectTimeAlertDialog({super.key});

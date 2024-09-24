@@ -6,8 +6,8 @@ import 'package:to_do_app/core/widgets/action_container.dart';
 import 'package:to_do_app/features/add_todo/presentation/views/select_date_dialog/month_calendar.dart';
 import 'package:to_do_app/features/add_todo/presentation/views/select_date_dialog/select_time_alert_dialog.dart';
 
-class CalendarSelectionView extends StatelessWidget {
-  const CalendarSelectionView({super.key});
+class SelectDateDialog extends StatelessWidget {
+  const SelectDateDialog({super.key});
 
   @override
   Widget build(BuildContext context) {

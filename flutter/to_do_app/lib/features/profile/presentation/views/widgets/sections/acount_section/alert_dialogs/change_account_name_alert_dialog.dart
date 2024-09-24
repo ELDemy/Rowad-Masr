@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_app/features/profile/presentation/views/widgets/custom_alert_dialog.dart';
+import 'package:to_do_app/core/widgets/custom_alert_dialog.dart';
 import 'package:to_do_app/features/profile/presentation/views/widgets/dialog_text_form_field.dart';
 import 'package:to_do_app/features/profile/presentation/views/widgets/user_top_info_widget.dart';
 
