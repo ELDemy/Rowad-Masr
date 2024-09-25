@@ -6,8 +6,9 @@ import 'package:to_do_app/core/models/task_model.dart';
 import 'package:to_do_app/core/state_management/tasks_cubit/tasks_cubit.dart';
 import 'package:to_do_app/core/utiles/app_colors.dart';
 import 'package:to_do_app/features/calendar/presentation/views/edit_task_view/edit_task_view.dart';
-import 'package:to_do_app/features/calendar/presentation/views/widgets/tasks_list/task_card/task_props.dart';
 import 'package:to_do_app/helper/datetime_extension.dart';
+
+import 'task_props.dart';
 
 class TaskCard extends StatefulWidget {
   const TaskCard({super.key, required this.taskModel});
@@ -27,7 +28,9 @@ class _TaskCardState extends State<TaskCard> {
       child: InkWell(
         onTap: () => PersistentNavBarNavigator.pushNewScreen(
           context,
-          screen: const EditTaskView(),
+          screen: EditTaskView(
+            taskModel: taskModel,
+          ),
           withNavBar: false,
           pageTransitionAnimation: PageTransitionAnimation.fade,
         ),
