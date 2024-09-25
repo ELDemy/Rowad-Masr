@@ -16,7 +16,7 @@ class MyPersistentBottomNavBar extends StatelessWidget {
       navBarStyle: NavBarStyle.style15,
       navBarHeight: 96,
       padding: const EdgeInsets.only(bottom: 30, top: 10),
-      backgroundColor: AppColors.kGreyBackgroundColor,
+      backgroundColor: AppColors.greyBackgroundColor,
       isVisible: true,
       animationSettings: const NavBarAnimationSettings(
         navBarItemAnimation: ItemAnimationSettings(
@@ -35,6 +35,7 @@ class MyPersistentBottomNavBar extends StatelessWidget {
       stateManagement: true, // Default is true.
       hideNavigationBarWhenKeyboardAppears: true,
       popBehaviorOnSelectedNavBarItemPress: PopBehavior.all,
+      onItemSelected: (value) {},
     );
   }
 }
