@@ -1,6 +1,8 @@
 import 'package:bloc/bloc.dart';
+import 'package:hive/hive.dart';
 import 'package:meta/meta.dart';
 import 'package:to_do_app/core/models/task_model.dart';
+import 'package:to_do_app/core/utiles/constants.dart';
 import 'package:to_do_app/helper/datetime_extension.dart';
 
 part 'tasks_state.dart';
@@ -8,9 +10,9 @@ part 'tasks_state.dart';
 class TasksCubit extends Cubit<TasksState> {
   TasksCubit() : super(TasksInitial());
 
-  final List<TaskModel> _tasksList = [];
+  Box<TaskModel> get _tasksBox => Hive.box<TaskModel>(AppConsts.tasksBox);
+  // final List<TaskModel> _tasksList = box.values;
   late List<TaskModel> _selectedDateTasksList;
-
   DateTime _dateTime = DateTime.now();
 
   set dateTime(DateTime dateTime) {
@@ -28,7 +30,7 @@ class TasksCubit extends Cubit<TasksState> {
   }
 
   void showTasks() {
-    _selectedDateTasksList = _tasksList
+    _selectedDateTasksList = _tasksBox.values
             .where((task) => task.dateTime.isSameDate(_dateTime))
             .toList()
         // ..sort(
@@ -56,12 +58,12 @@ class TasksCubit extends Cubit<TasksState> {
   }
 
   addTask(TaskModel taskModel) {
-    _tasksList.add(taskModel);
+    _tasksBox.add(taskModel);
     showTasks();
   }
 
   removeTask(TaskModel taskModel) {
-    _tasksList.remove(taskModel);
+    _tasksBox.delete(taskModel);
     showTasks();
   }
 }
