@@ -1,12 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'package:to_do_app/core/utiles/constants.dart';
 
-class TaskModel {
+part 'task_model.g.dart';
+
+@HiveType(typeId: 0)
+class TaskModel extends HiveObject {
+  @HiveField(0)
   String title;
+  @HiveField(1)
   String? description;
+  @HiveField(2)
   DateTime dateTime;
+  @HiveField(3)
   CategoryModel category;
+  @HiveField(4)
   int priority;
+  @HiveField(5)
   final List<TaskModel> subTasks = [];
+  @HiveField(6)
   bool isCompleted = false;
 
   TaskModel({
@@ -22,40 +35,21 @@ class TaskModel {
   }
 }
 
+@HiveType(typeId: 1)
 class CategoryModel {
+  @HiveField(0)
   final String category;
+  @HiveField(1)
   final Color color;
-  final IconData icon;
+  @HiveField(2)
+  final int _iconCode;
+
+  IconData get icon => IconData(_iconCode, fontFamily: 'MaterialIcons');
 
   CategoryModel(
-      {required this.category, required this.color, required this.icon});
+      {required this.category, required this.color, required IconData icon})
+      : _iconCode = icon.codePoint;
 
-  static List<CategoryModel> categoriesList = [
-    CategoryModel(
-        category: "Grocery",
-        color: Color(0xFFCCFF80),
-        icon: Icons.local_grocery_store_outlined),
-    CategoryModel(
-        category: "Workk",
-        color: Color(0xffFF9680),
-        icon: Icons.work_outline_rounded),
-    CategoryModel(
-        category: "Sport",
-        color: Color(0xff80FFFF),
-        icon: Icons.sports_gymnastics),
-    CategoryModel(
-        category: "Design",
-        color: Color(0xff80FFD9),
-        icon: Icons.design_services),
-    CategoryModel(
-      category: "University",
-      color: Color(0xff809CFF),
-      icon: Icons.school_outlined,
-    ),
-    CategoryModel(
-      category: "Social",
-      color: Color(0xffFF80EB),
-      icon: Icons.headphones,
-    ),
-  ];
+  static List<CategoryModel> categoriesList =
+      Hive.box<CategoryModel>(AppConsts.categoriesBox).values.toList();
 }
