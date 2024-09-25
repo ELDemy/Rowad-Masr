@@ -11,7 +11,6 @@ class TasksCubit extends Cubit<TasksState> {
   TasksCubit() : super(TasksInitial());
 
   Box<TaskModel> get _tasksBox => Hive.box<TaskModel>(AppConsts.tasksBox);
-  // final List<TaskModel> _tasksList = box.values;
   late List<TaskModel> _selectedDateTasksList;
   DateTime _dateTime = DateTime.now();
 
@@ -64,6 +63,12 @@ class TasksCubit extends Cubit<TasksState> {
 
   removeTask(TaskModel taskModel) {
     _tasksBox.delete(taskModel);
+    showTasks();
+  }
+
+  completeTask(TaskModel taskModel) {
+    taskModel.isCompleted = !taskModel.isCompleted;
+    taskModel.save();
     showTasks();
   }
 }

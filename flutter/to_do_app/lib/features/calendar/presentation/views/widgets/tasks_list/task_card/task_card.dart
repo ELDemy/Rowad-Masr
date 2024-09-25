@@ -38,8 +38,7 @@ class _TaskCardState extends State<TaskCard> {
             ),
             onPressed: () {
               setState(() {
-                taskModel.isCompleted = !taskModel.isCompleted;
-                BlocProvider.of<TasksCubit>(context).showTasks();
+                BlocProvider.of<TasksCubit>(context).completeTask(taskModel);
               });
             },
             icon: const Icon(Icons.circle_outlined),
