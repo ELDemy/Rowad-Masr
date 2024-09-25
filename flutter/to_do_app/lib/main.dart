@@ -10,13 +10,12 @@ import 'package:to_do_app/features/bottom_nav_bar/presentation/views/bottom_nav_
 
 void main() async {
   await Hive.initFlutter();
+
   Hive.registerAdapter<TaskModel>(TaskModelAdapter());
   Hive.registerAdapter<CategoryModel>(CategoryModelAdapter());
   Hive.registerAdapter<Color>(ColorAdapter());
-
   await Hive.openBox<TaskModel>(AppConsts.tasksBox);
-  var box = await Hive.openBox<CategoryModel>(AppConsts.categoriesBox);
-  box.addAll(CategoryModel.categoriesList);
+  await Hive.openBox<CategoryModel>(AppConsts.categoriesBox);
 
   runApp(const ToDoApp());
 }

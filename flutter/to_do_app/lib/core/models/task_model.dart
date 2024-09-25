@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:to_do_app/core/utiles/constants.dart';
 
 part 'task_model.g.dart';
 
@@ -49,32 +50,6 @@ class CategoryModel {
       {required this.category, required this.color, required IconData icon})
       : _iconCode = icon.codePoint;
 
-  static List<CategoryModel> categoriesList = [
-    CategoryModel(
-        category: "Grocery",
-        color: const Color(0xFFCCFF80),
-        icon: Icons.local_grocery_store_outlined),
-    CategoryModel(
-        category: "Workk",
-        color: const Color(0xffFF9680),
-        icon: Icons.work_outline_rounded),
-    CategoryModel(
-        category: "Sport",
-        color: const Color(0xff80FFFF),
-        icon: Icons.sports_gymnastics),
-    CategoryModel(
-        category: "Design",
-        color: const Color(0xff80FFD9),
-        icon: Icons.design_services),
-    CategoryModel(
-      category: "University",
-      color: const Color(0xff809CFF),
-      icon: Icons.school_outlined,
-    ),
-    CategoryModel(
-      category: "Social",
-      color: const Color(0xffFF80EB),
-      icon: Icons.headphones,
-    ),
-  ];
+  static List<CategoryModel> categoriesList =
+      Hive.box<CategoryModel>(AppConsts.categoriesBox).values.toList();
 }
