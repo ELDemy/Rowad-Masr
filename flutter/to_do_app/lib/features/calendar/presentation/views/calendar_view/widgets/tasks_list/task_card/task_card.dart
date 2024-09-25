@@ -1,25 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:to_do_app/core/models/task_model.dart';
-import 'package:to_do_app/core/state_management/tasks_cubit/tasks_cubit.dart';
 import 'package:to_do_app/core/utiles/app_colors.dart';
-import 'package:to_do_app/features/calendar/presentation/views/edit_task_view/edit_task_view.dart';
+import 'package:to_do_app/features/add_todo/presentation/views/edit_task_view/edit_task_view.dart';
+import 'package:to_do_app/features/calendar/presentation/views/widgets/task_circle_icon.dart';
 import 'package:to_do_app/helper/datetime_extension.dart';
 
 import 'task_props.dart';
 
-class TaskCard extends StatefulWidget {
+class TaskCard extends StatelessWidget {
   const TaskCard({super.key, required this.taskModel});
   final TaskModel taskModel;
-
-  @override
-  State<TaskCard> createState() => _TaskCardState();
-}
-
-class _TaskCardState extends State<TaskCard> {
-  TaskModel get taskModel => widget.taskModel;
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +20,7 @@ class _TaskCardState extends State<TaskCard> {
       child: InkWell(
         onTap: () => PersistentNavBarNavigator.pushNewScreen(
           context,
-          screen: EditTaskView(
-            taskModel: taskModel,
-          ),
+          screen: EditTaskView(taskModel: taskModel),
           withNavBar: false,
           pageTransitionAnimation: PageTransitionAnimation.fade,
         ),
@@ -43,7 +33,7 @@ class _TaskCardState extends State<TaskCard> {
           ),
           child: Row(
             children: [
-              _taskCircleIcon(context),
+              TaskCircleIcon(taskModel: taskModel),
               const SizedBox(width: 12),
               Expanded(
                 child: Column(
@@ -60,7 +50,7 @@ class _TaskCardState extends State<TaskCard> {
                     )
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),
@@ -68,26 +58,7 @@ class _TaskCardState extends State<TaskCard> {
     );
   }
 
-  IconButton _taskCircleIcon(BuildContext context) {
-    return IconButton(
-      isSelected: taskModel.isCompleted,
-      padding: EdgeInsets.zero,
-      constraints: const BoxConstraints(),
-      style: IconButton.styleFrom(
-        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-      ),
-      onPressed: () {
-        setState(() {
-          BlocProvider.of<TasksCubit>(context).completeTask(taskModel);
-        });
-      },
-      icon: const Icon(Icons.circle_outlined),
-      selectedIcon:
-          const Icon(Icons.circle, color: AppColors.purplePrimaryColor),
-      color: Colors.white.withOpacity(.87),
-    );
-  }
-
+  //
   Padding _taskTitle() {
     return Padding(
       padding: const EdgeInsets.only(bottom: 6),
@@ -103,10 +74,9 @@ class _TaskCardState extends State<TaskCard> {
   }
 
   Widget _taskTime() {
-    String taskTime = compareDates();
     return Expanded(
       child: Text(
-        taskTime,
+        _formatTime(),
         style: const TextStyle(
           fontSize: 14,
           height: 21 / 14,
@@ -117,7 +87,7 @@ class _TaskCardState extends State<TaskCard> {
     );
   }
 
-  String compareDates() {
+  String _formatTime() {
     if (taskModel.dateTime.isSameDate(DateTime.now())) {
       return "Today At ${DateFormat("HH:mm").format(taskModel.dateTime)}";
     } else if (taskModel.dateTime.year == DateTime.now().year) {
