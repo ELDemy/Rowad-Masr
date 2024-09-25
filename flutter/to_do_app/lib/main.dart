@@ -9,15 +9,18 @@ import 'package:to_do_app/core/utiles/constants.dart';
 import 'package:to_do_app/features/bottom_nav_bar/presentation/views/bottom_nav_view.dart';
 
 void main() async {
-  await Hive.initFlutter();
+  await _hiveInit();
+  runApp(const ToDoApp());
+}
 
+_hiveInit() async {
+  await Hive.initFlutter();
   Hive.registerAdapter<TaskModel>(TaskModelAdapter());
   Hive.registerAdapter<CategoryModel>(CategoryModelAdapter());
   Hive.registerAdapter<Color>(ColorAdapter());
+
   await Hive.openBox<TaskModel>(AppConsts.tasksBox);
   await Hive.openBox<CategoryModel>(AppConsts.categoriesBox);
-
-  runApp(const ToDoApp());
 }
 
 class ToDoApp extends StatelessWidget {
