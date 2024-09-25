@@ -52,28 +52,28 @@ class CategoryModel {
   static List<CategoryModel> categoriesList = [
     CategoryModel(
         category: "Grocery",
-        color: Color(0xFFCCFF80),
+        color: const Color(0xFFCCFF80),
         icon: Icons.local_grocery_store_outlined),
     CategoryModel(
         category: "Workk",
-        color: Color(0xffFF9680),
+        color: const Color(0xffFF9680),
         icon: Icons.work_outline_rounded),
     CategoryModel(
         category: "Sport",
-        color: Color(0xff80FFFF),
+        color: const Color(0xff80FFFF),
         icon: Icons.sports_gymnastics),
     CategoryModel(
         category: "Design",
-        color: Color(0xff80FFD9),
+        color: const Color(0xff80FFD9),
         icon: Icons.design_services),
     CategoryModel(
       category: "University",
-      color: Color(0xff809CFF),
+      color: const Color(0xff809CFF),
       icon: Icons.school_outlined,
     ),
     CategoryModel(
       category: "Social",
-      color: Color(0xffFF80EB),
+      color: const Color(0xffFF80EB),
       icon: Icons.headphones,
     ),
   ];

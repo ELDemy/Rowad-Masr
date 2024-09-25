@@ -15,6 +15,8 @@ void main() async {
   Hive.registerAdapter<Color>(ColorAdapter());
 
   await Hive.openBox<TaskModel>(AppConsts.tasksBox);
+  var box = await Hive.openBox<CategoryModel>(AppConsts.categoriesBox);
+  box.addAll(CategoryModel.categoriesList);
 
   runApp(const ToDoApp());
 }
