@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_app/core/models/task_model.dart';
 
+import 'widgets/detail_task_prop.dart';
 import 'widgets/edit_task_app_bar.dart';
 import 'widgets/task_title_details.dart';
 
@@ -19,6 +20,7 @@ class EditTaskView extends StatelessWidget {
             children: [
               const EditTaskAppBar(),
               TaskTitleDetails(taskModel: taskModel),
+              const DetailTaskProp(),
             ],
           ),
         ),
