@@ -4,7 +4,7 @@ import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:to_do_app/core/utiles/app_colors.dart';
 import 'package:to_do_app/core/utiles/icons.dart';
 import 'package:to_do_app/features/add_todo/presentation/views/add_task_bottom_sheet/task_bottom_sheet.dart';
-import 'package:to_do_app/features/calendar/presentation/views/calendar_view.dart';
+import 'package:to_do_app/features/calendar/presentation/views/calendar_view/calendar_view.dart';
 import 'package:to_do_app/features/focus/presentation/views/focus_view.dart';
 import 'package:to_do_app/features/home/presentation/views/home_view.dart';
 import 'package:to_do_app/features/profile/presentation/views/profile_view.dart';
