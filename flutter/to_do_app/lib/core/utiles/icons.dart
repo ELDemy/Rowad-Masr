@@ -29,4 +29,6 @@ class TaskIcons {
   static String send = 'assets/icons/task_props_icons/send.svg';
   static String repeat = 'assets/icons/task_props_icons/repeat.svg';
   static String edit2 = 'assets/icons/task_props_icons/edit2.svg';
+  static String hierarchy = 'assets/icons/task_props_icons/hierarchy.svg';
+  static String trash = 'assets/icons/task_props_icons/trash.svg';
 }

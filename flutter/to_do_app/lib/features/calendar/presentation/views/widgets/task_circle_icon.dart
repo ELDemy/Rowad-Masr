@@ -28,7 +28,6 @@ class _TaskCircleIconState extends State<TaskCircleIcon> {
         });
       },
       color: Colors.white.withOpacity(.87),
-      // iconSize: 16,
       icon: const Icon(
         Icons.circle_outlined,
       ),

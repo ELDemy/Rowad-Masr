@@ -12,7 +12,7 @@ class TaskTitleDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 25, right: 12, bottom: 38),
+      padding: const EdgeInsets.only(top: 25, right: 12, bottom: 20),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -37,7 +37,7 @@ class TaskTitleDetails extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Do Math Homework" ?? taskModel.title,
+            taskModel.title,
             style: const TextStyle(
               fontSize: 20,
               height: 21 / 20,
@@ -45,7 +45,7 @@ class TaskTitleDetails extends StatelessWidget {
           ),
           const SizedBox(height: 15),
           Text(
-            "Do chapter 2 to 5 for next week" ?? taskModel.description!,
+            taskModel.description!,
             style: const TextStyle(
               fontSize: 16,
               height: 24.08 / 16,

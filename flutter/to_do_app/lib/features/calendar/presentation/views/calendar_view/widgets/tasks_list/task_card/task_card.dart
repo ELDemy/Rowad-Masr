@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:to_do_app/core/models/task_model.dart';
 import 'package:to_do_app/core/utiles/app_colors.dart';
-import 'package:to_do_app/features/add_todo/presentation/views/edit_task_view/edit_task_view.dart';
+import 'package:to_do_app/features/add_todo/presentation/views/detail_task_view/detail_task_view.dart';
 import 'package:to_do_app/features/calendar/presentation/views/widgets/task_circle_icon.dart';
 import 'package:to_do_app/helper/datetime_extension.dart';
 
@@ -20,7 +19,7 @@ class TaskCard extends StatelessWidget {
       child: InkWell(
         onTap: () => PersistentNavBarNavigator.pushNewScreen(
           context,
-          screen: EditTaskView(taskModel: taskModel),
+          screen: DetailTaskView(taskModel: taskModel),
           withNavBar: false,
           pageTransitionAnimation: PageTransitionAnimation.fade,
         ),
@@ -76,7 +75,7 @@ class TaskCard extends StatelessWidget {
   Widget _taskTime() {
     return Expanded(
       child: Text(
-        _formatTime(),
+        formatTime(taskModel),
         style: const TextStyle(
           fontSize: 14,
           height: 21 / 14,
@@ -85,15 +84,5 @@ class TaskCard extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  String _formatTime() {
-    if (taskModel.dateTime.isSameDate(DateTime.now())) {
-      return "Today At ${DateFormat("HH:mm").format(taskModel.dateTime)}";
-    } else if (taskModel.dateTime.year == DateTime.now().year) {
-      return DateFormat("MMM d At HH:mm").format(taskModel.dateTime);
-    } else {
-      return DateFormat("y MMM d").format(taskModel.dateTime);
-    }
   }
 }
