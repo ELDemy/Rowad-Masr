@@ -1,5 +1,5 @@
 import 'package:intl/intl.dart';
-import 'package:to_do_app/core/models/task_model.dart';
+import 'package:to_do_app/data/models/task_model/task_model.dart';
 
 extension CompareDates on DateTime {
   bool isSameDate(DateTime other) =>

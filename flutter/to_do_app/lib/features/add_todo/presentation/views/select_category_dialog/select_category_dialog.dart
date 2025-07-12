@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:to_do_app/core/models/task_model.dart';
+import 'package:to_do_app/data/models/task_model/task_model.dart';
 import 'package:to_do_app/core/utiles/app_colors.dart';
 import 'package:to_do_app/core/widgets/custom_alert_dialog.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:to_do_app/core/models/task_model.dart';
+import 'package:to_do_app/data/models/task_model/task_model.dart';
 import 'package:to_do_app/core/utiles/icons.dart';
 import 'package:to_do_app/helper/datetime_extension.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_app/core/models/task_model.dart';
+import 'package:to_do_app/data/models/task_model/task_model.dart';
 import 'package:to_do_app/core/utiles/app_colors.dart';
 
 class TaskProps extends StatelessWidget {

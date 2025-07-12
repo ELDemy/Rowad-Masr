@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
-import 'package:to_do_app/core/models/task_model.dart';
+import 'package:to_do_app/data/models/task_model/task_model.dart';
 import 'package:to_do_app/core/utiles/app_colors.dart';
 import 'package:to_do_app/features/add_todo/presentation/views/detail_task_view/detail_task_view.dart';
 import 'package:to_do_app/features/calendar/presentation/views/widgets/task_circle_icon.dart';

@@ -1,7 +1,7 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
-import 'package:meta/meta.dart';
-import 'package:to_do_app/core/models/task_model.dart';
+import 'package:to_do_app/data/models/task_model/task_model.dart';
 import 'package:to_do_app/core/utiles/constants.dart';
 import 'package:to_do_app/helper/datetime_extension.dart';
 
@@ -11,6 +11,7 @@ class TasksCubit extends Cubit<TasksState> {
   TasksCubit() : super(TasksInitial());
 
   Box<TaskModel> get _tasksBox => Hive.box<TaskModel>(AppConsts.tasksBox);
+
   late List<TaskModel> _selectedDateTasksList;
   DateTime _dateTime = DateTime.now();
 
