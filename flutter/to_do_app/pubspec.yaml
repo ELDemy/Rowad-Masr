@@ -23,8 +23,10 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   isar_flutter_libs: ^4.0.0-dev.13
-  path_provider: ^2.1.4
+  path_provider: ^2.1.5
   dartz: ^0.10.1
+  drift: ^2.26.1
+  drift_flutter: ^0.2.4
 
 #  table_calendar: ^3.1.2
 #  flutter_time_picker_spinner: ^2.0.0
@@ -39,7 +41,8 @@ dev_dependencies:
 
   flutter_lints: ^4.0.0
   hive_generator: ^2.0.1
-  build_runner: ^2.4.12
+  build_runner: ^2.4.15
+  drift_dev: ^2.26.0
 
 
 flutter:

@@ -18,11 +18,12 @@ class TaskModelAdapter extends TypeAdapter<TaskModel> {
     };
     return TaskModel(
       title: fields[0] as String,
-      description: fields[1] as String?,
       dateTime: fields[2] as DateTime,
       category: fields[3] as CategoryModel,
+      description: fields[1] as String?,
       priority: fields[4] as int,
-    )..isCompleted = fields[6] as bool;
+      isCompleted: fields[6] as bool,
+    );
   }
 
   @override
@@ -69,7 +70,7 @@ class CategoryModelAdapter extends TypeAdapter<CategoryModel> {
     return CategoryModel(
       category: fields[0] as String,
       color: fields[1] as Color,
-      icon: IconData(fields[2] as int, fontFamily: 'MaterialIcons'),
+      icon: fields[2] as IconData,
     );
   }
 
@@ -82,7 +83,7 @@ class CategoryModelAdapter extends TypeAdapter<CategoryModel> {
       ..writeByte(1)
       ..write(obj.color)
       ..writeByte(2)
-      ..write(obj.icon.codePoint);
+      ..write(obj._iconCode);
   }
 
   @override

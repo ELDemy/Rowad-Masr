@@ -15,30 +15,47 @@ class TasksRepositoryImpl implements TasksRepository {
   Future<Either<Failure, List<TaskEntity>>> getTasksByDate(
     DateParam date,
   ) async {
-    List<TaskModel> tasks = localDataSource.getTasksByDate(date);
-    List<TaskEntity> tasksEntities = tasks.map((e) => e.toEntity()).toList();
-    return Right(tasksEntities);
+    try {
+      List<TaskModel> tasks = await localDataSource.getTasksByDate(date);
+      List<TaskEntity> tasksEntities = tasks.map((e) => e.toEntity()).toList();
+      return Right(tasksEntities);
+    } catch (e) {
+      return Left(Failure(e.toString()));
+    }
   }
 
   @override
   Future<Either<Failure, void>> addTask(TaskEntity taskEntity) async {
-    localDataSource.addTask(TaskModel.fromEntity(taskEntity));
+    try {
+      localDataSource.addTask(TaskModel.fromEntity(taskEntity));
 
-    return const Right(null);
+      return const Right(null);
+    } catch (e) {
+      return Left(Failure(e.toString()));
+    }
   }
 
   @override
   Future<Either<Failure, void>> updateTask(
     TaskEntity taskEntity,
   ) async {
-    localDataSource.updateTask(TaskModel.fromEntity(taskEntity));
+    try {
+      localDataSource.updateTask(TaskModel.fromEntity(taskEntity));
 
-    return const Right(null);
+      return const Right(null);
+    } catch (e) {
+      return Left(Failure(e.toString()));
+    }
   }
 
   @override
   Future<Either<Failure, void>> deleteTask(TaskEntity taskEntity) async {
-    localDataSource.deleteTask(TaskModel.fromEntity(taskEntity));
-    return const Right(null);
+    try {
+      localDataSource.deleteTask(TaskModel.fromEntity(taskEntity));
+
+      return const Right(null);
+    } catch (e) {
+      return Left(Failure(e.toString()));
+    }
   }
 }

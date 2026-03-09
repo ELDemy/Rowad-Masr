@@ -5,6 +5,7 @@ import 'package:to_do_app/core/utiles/constants.dart';
 import 'package:to_do_app/data/models/task_model/task_model.dart';
 
 class TaskEntity {
+  final int? id;
   final String title;
   final String? description;
   final DateTime dateTime;
@@ -14,6 +15,7 @@ class TaskEntity {
   bool isCompleted;
 
   TaskEntity({
+    this.id,
     required this.title,
     required this.dateTime,
     required this.category,
@@ -28,6 +30,7 @@ class TaskEntity {
 }
 
 class CategoryEntity {
+  final int? id;
   final String category;
 
   final Color color;
@@ -37,7 +40,10 @@ class CategoryEntity {
   IconData get icon => IconData(_iconCode, fontFamily: 'MaterialIcons');
 
   CategoryEntity(
-      {required this.category, required this.color, required IconData icon})
+      {this.id,
+      required this.category,
+      required this.color,
+      required IconData icon})
       : _iconCode = icon.codePoint;
 
   static List<CategoryModel> categoriesList =

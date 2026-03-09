@@ -9,21 +9,24 @@ part 'task_model.g.dart';
 @HiveType(typeId: 0)
 class TaskModel extends HiveObject {
   @HiveField(0)
-  String title;
+  int? id;
   @HiveField(1)
-  String? description;
+  String title;
   @HiveField(2)
-  DateTime dateTime;
+  String? description;
   @HiveField(3)
-  CategoryModel category;
+  DateTime dateTime;
   @HiveField(4)
-  int priority;
+  CategoryModel category;
   @HiveField(5)
-  final List<TaskModel> subTasks = [];
+  int priority;
   @HiveField(6)
+  final List<TaskModel> subTasks = [];
+  @HiveField(7)
   bool isCompleted;
 
   TaskModel({
+    this.id,
     required this.title,
     required this.dateTime,
     required this.category,
@@ -33,6 +36,7 @@ class TaskModel extends HiveObject {
   });
   factory TaskModel.fromEntity(TaskEntity entity) {
     return TaskModel(
+      id: entity.id,
       title: entity.title,
       description: entity.description,
       dateTime: entity.dateTime,
@@ -61,20 +65,26 @@ class TaskModel extends HiveObject {
 @HiveType(typeId: 1)
 class CategoryModel {
   @HiveField(0)
-  final String category;
+  final int? id;
   @HiveField(1)
-  final Color color;
+  final String category;
   @HiveField(2)
+  final Color color;
+  @HiveField(3)
   final int _iconCode;
 
   IconData get icon => IconData(_iconCode, fontFamily: 'MaterialIcons');
 
   CategoryModel(
-      {required this.category, required this.color, required IconData icon})
+      {this.id,
+      required this.category,
+      required this.color,
+      required IconData icon})
       : _iconCode = icon.codePoint;
 
   factory CategoryModel.fromEntity(CategoryEntity entity) {
     return CategoryModel(
+      id: entity.id,
       category: entity.category,
       color: entity.color,
       icon: entity.icon,
@@ -86,6 +96,15 @@ class CategoryModel {
       category: category,
       color: color,
       icon: icon,
+    );
+  }
+
+  static CategoryModel defaultCategory() {
+    return CategoryModel(
+      id: 0,
+      category: 'Default',
+      color: Colors.grey,
+      icon: Icons.help_outline,
     );
   }
 

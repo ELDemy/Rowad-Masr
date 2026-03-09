@@ -12,6 +12,7 @@ class AddTaskCubit extends Cubit<AddTaskState> {
   int priority = 1;
 
   CategoryModel category = CategoryModel(
+    id: 0,
     category: "category",
     color: const Color(0xff809CFF),
     icon: Icons.medical_information,
@@ -19,6 +20,7 @@ class AddTaskCubit extends Cubit<AddTaskState> {
 
   TaskModel getTask() {
     return TaskModel(
+      id: 0,
       title: title,
       description: description,
       dateTime: dateTime,
